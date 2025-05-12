@@ -3,6 +3,8 @@ const router = express.Router();
 const { getUsers } = require('../controllers/user.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 
-router.get('/', authenticateToken, getUsers);
+
+//tAlls Role
+router.get('/', authenticateToken(['admin','empleado']), getUsers);
 
 module.exports = router;

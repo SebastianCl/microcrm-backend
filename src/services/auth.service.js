@@ -14,7 +14,7 @@ const login = async (username, password) => {
   if (!user || !(password == user.contrasena)) {
     throw new Error('Invalid credentials');
   }
-  const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ id: user.id, username: user.username, role: user.rol }, process.env.JWT_SECRET, {
     expiresIn: '1h'
   });
   return token;
