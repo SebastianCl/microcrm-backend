@@ -5,6 +5,6 @@ const authenticateToken = require('../middlewares/auth.middleware');
 
 
 //tAlls Role
-router.get('/', authenticateToken(['admin','empleado']), getUsers);
+router.get('/', authenticateToken(['admin']), getUsers);
 
 module.exports = router;
