@@ -11,11 +11,11 @@ const register = async (username, password) => {
 const login = async (username, password) => {
   const user = await userRepo.findByUsername(username);
   // if (!user || !(await bcrypt.compare(password, user.password))) {
-  if ( !user || !(password == user.contrasena)) {
+  if (!user || !(password == user.contrasena)) {
     throw new Error('Invalid credentials');
   }
   const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, {
-    expiresIn: '1h',
+    expiresIn: '1h'
   });
   return token;
 };
