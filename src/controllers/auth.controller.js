@@ -1,8 +1,8 @@
 const authService = require('../services/auth.service');
 
 const register = async (req, res) => {
-  const { username, password } = req.body;
-  const id = await authService.register(username, password);
+  const { cliente, username, password } = req.body;
+  const id = await authService.register(cliente,username, password);
   res.status(201).json({ message: 'User created', id });
 };
 
