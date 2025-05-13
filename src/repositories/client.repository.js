@@ -36,4 +36,23 @@ const updateStatus = async(id) =>{
   if(result.rowCount === 0) throw new Error('Error al actulizar el estado del cliente  o cliente no encontrado');
 };
 
-module.exports = { getAllClients, getFindById, createClient, updateStatus };
+const updateCliente = async(id, data) =>{
+  const keys = Object.keys(data);
+  const values = Object.values(data);
+
+  // construccion del set dinamico
+  const setClause = keys
+    .map((key, index) => `${key} = $${index + 1}`)
+    .join(', ');
+
+
+  // Agregar el ID como último parámetro
+  values.push(id);
+  
+  // Crear y ejecutar la consulta final
+  const query = `UPDATE clientes SET ${setClause} WHERE id_cliente = $${values.length}`;
+  const result = await db.query(query, values);
+  if(result.rowCount === 0) throw new Error('Error al actulizar el cliente  o cliente no encontrado');
+};
+
+module.exports = { getAllClients, getFindById, createClient, updateStatus, updateCliente };

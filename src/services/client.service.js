@@ -16,4 +16,8 @@ const updateStatus = async(id) =>{
     return await clientRepo.updateStatus(id);
 };
 
-module.exports = { listClients, listClient, createClient, updateStatus };
+const updateCliente = async(id,data) => {
+  return await clientRepo.updateCliente(id,data);
+};
+
+module.exports = { listClients, listClient, createClient, updateStatus, updateCliente };

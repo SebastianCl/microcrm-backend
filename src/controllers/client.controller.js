@@ -16,7 +16,7 @@ const getClient = async (req, res) => {
     try {
         const { id } = req.params;
         const client = await clientService.listClient(id);
-        res.status(200).json(client);    
+        res.status(200).json(client);
     } catch (error) {
         console.error('Error al obtener el clien: ', error);
         res.status(500).json({
@@ -29,10 +29,11 @@ const createClient = async (req, res) => {
     try {
         const { nombre, correo, telefono } = req.body;
         const response = await clientService.createClient(nombre, correo, telefono);
-        res.status(201).json({message: `cliente creado correctamente: ${response}`});
+
+        if (!response.status) res.status(401).json({ message: response.message });
+        res.status(201).json({ message: `cliente creado correctamente: ${response.message}` });
     } catch (error) {
-        console.error('Error al crear cliente:', error);
-        res.status(500).json({message: 'Error al crear el cliente'});
+        res.status(500).json({ message: 'Error al crear el cliente' });
     }
 };
 
@@ -47,5 +48,16 @@ const updateStatus = async(req, res) => {
     }    
 };
 
+const updateCliente = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+        await clientService.updateCliente(id, data);
+        res.status(200).json({ message: 'el cliente ha sido actualizado correctamente' });
+    } catch (error) {
+        console.error('Error al actualizar el cliente: ', error);
+        res.status(500).json('Error al actualizar cliente o cliente no encontrado');
+    }
+};
 
-module.exports = { getClients, getClient, createClient, updateStatus };
+module.exports = { getClients, getClient, createClient, updateStatus, updateCliente };
