@@ -12,6 +12,16 @@ const getFindById = async (id) => {
 };
 
 const createClient = async(name, email, phone) =>{
+  
+  const existing = await db.query(
+    'SELECT id_cliente FROM clientes WHERE correo = $1 OR nombre = $2', [email, name]
+  );
+  
+  if(existing.rows.length > 0) return {
+    status: false,
+    message: 'Cliente ya registrado con ese nombre o correo'
+  };
+
   const { rows } = await db.query(
     'INSERT INTO clientes(nombre, correo, telefono) VALUES($1, $2, $3) RETURNING id_cliente', [name, email, phone]
   );
