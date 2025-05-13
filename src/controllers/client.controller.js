@@ -36,4 +36,16 @@ const createClient = async (req, res) => {
     }
 };
 
-module.exports = { getClients, getClient, createClient };
+const deleteClient = async(req, res) => {
+    try {
+        const { id } = req.params;
+        await clientService.deleteClient(id);
+        res.status(200).json({message: 'Cliente eliminado correctamente'});
+    } catch (error) {
+        console.error('Error al eliminar el cliente: ', error);
+        res.status(500).json('Error al eliminar el cliente');
+    }    
+};
+
+
+module.exports = { getClients, getClient, createClient, deleteClient };

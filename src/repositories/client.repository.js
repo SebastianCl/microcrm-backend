@@ -18,4 +18,11 @@ const createClient = async(name, email, phone) =>{
   return result.insertId;
 };
 
-module.exports = { getAllClients, getFindById, createClient };
+const deleteClient = async(id) =>{
+  const [result] = await db.query(
+    'DELETE FROM clientes WHERE id_cliente = ?', [id]
+  );
+  if(result.affectedRows === 0) throw new Error('Error al eliminar el cliente');
+};
+
+module.exports = { getAllClients, getFindById, createClient, deleteClient };
