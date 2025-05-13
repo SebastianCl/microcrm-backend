@@ -18,12 +18,12 @@ const createClient = async(name, email, phone) =>{
   return rows[0].id_cliente;
 };
 
-const deleteClient = async(id) =>{
+const updateStatus = async(id) =>{
   const result = await db.query(
-    'DELETE FROM clientes WHERE id_cliente = $1', [id]
+    'UPDATE clientes SET estado = NOT estado WHERE id_cliente = $1', [id]
   );
   
-  if(result.rowCount === 0) throw new Error('Error al eliminar el cliente o cliente no encontrado');
+  if(result.rowCount === 0) throw new Error('Error al actulizar el estado del cliente  o cliente no encontrado');
 };
 
-module.exports = { getAllClients, getFindById, createClient, deleteClient };
+module.exports = { getAllClients, getFindById, createClient, updateStatus };

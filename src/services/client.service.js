@@ -12,8 +12,8 @@ const createClient = async(name, email, phone) => {
   return await clientRepo.createClient(name, email, phone);
 };
 
-const deleteClient = async(id) =>{
-    return await clientRepo.deleteClient(id);
+const updateStatus = async(id) =>{
+    return await clientRepo.updateStatus(id);
 };
 
-module.exports = { listClients, listClient, createClient, deleteClient };
+module.exports = { listClients, listClient, createClient, updateStatus };
