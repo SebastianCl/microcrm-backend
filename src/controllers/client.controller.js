@@ -29,11 +29,14 @@ const createClient = async (req, res) => {
     try {
         const { nombre, correo, telefono } = req.body;
         const response = await clientService.createClient(nombre, correo, telefono);
-
-        if (!response.status) res.status(401).json({ message: response.message });
-        res.status(201).json({ message: `cliente creado correctamente: ${response.message}` });
+        if (response.status) {
+            res.status(201).json({ message: `cliente creado correctamente: ${response.message}` });
+        }else {
+            res.status(401).json({ message: response.message });
+        } 
+            
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear el cliente' });
+        res.status(500).json(error);
     }
 };
 

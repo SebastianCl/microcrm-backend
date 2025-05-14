@@ -25,7 +25,11 @@ const createClient = async(name, email, phone) =>{
   const { rows } = await db.query(
     'INSERT INTO clientes(nombre, correo, telefono) VALUES($1, $2, $3) RETURNING id_cliente', [name, email, phone]
   );
-  return rows[0].id_cliente;
+  
+  return {
+    status: true,
+    message: rows[0].id_cliente
+  };
 };
 
 const updateStatus = async(id) =>{
