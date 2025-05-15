@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const {errorHandler, notFound} = require('./middlewares/errorHandler');
 const app = express();
 
 app.use(express.json());
@@ -10,6 +11,11 @@ app.use('/api/users', require('./routes/user.routes'));
 app.use('/api/clients', require('./routes/client.routes'));
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
+
+app.use(notFound);
+
+// Middleware de manejo de errores
+app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server running at http://localhost:${process.env.PORT}`)
