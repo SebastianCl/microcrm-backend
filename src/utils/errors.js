@@ -11,7 +11,14 @@ const errors = {
   CLIENT_NOT_FOUND: () => new ApiError(404, 'Cliente no encontrado'),
   CLIENT_ALREADY_EXISTS: () => new ApiError(409, 'El cliente ya existe'),
   CLIENT_CREATION_FAILED: () => new ApiError(500, 'Error al crear el cliente'),
-  CLIENT_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el cliente')
+  CLIENT_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el cliente'),
+
+  //Errores para usuarios
+  USERS_NOT_FOUND: () => new ApiError(404, 'Fallo al consultar usuario'),
+  USER_NOT_FOUND: () => new ApiError(404, 'Usuario no encontrado'),
+  USER_ALREADY_EXISTS: () => new ApiError(409, 'El Usuario ya existe'),
+  USER_CREATION_FAILED: () => new ApiError(500, 'Error al crear el Usuario'),
+  USER_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el Usuario')
 };
 
 module.exports = errors;

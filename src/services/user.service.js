@@ -4,4 +4,8 @@ const listUsers = async () => {
   return await userRepo.getAllUsers();
 };
 
-module.exports = { listUsers };
+const User = async (id) => {
+  return await userRepo.getFindById(id);
+};
+
+module.exports = { listUsers,User };
