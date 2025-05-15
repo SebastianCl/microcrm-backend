@@ -4,7 +4,7 @@ const { getUsers } = require('../controllers/user.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 
 
-//tAlls Role
+// tAlls Role
 router.get('/', authenticateToken(['admin']), getUsers);
 
 module.exports = router;
