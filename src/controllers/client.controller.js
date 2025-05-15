@@ -1,66 +1,53 @@
 const clientService = require('../services/client.service');
 
-const getClients = async (req, res) => {
+const getClients = async (req, res, next) => {
     try {
         const clients = await clientService.listClients();
         res.status(200).json(clients);
-    } catch (error) {
-        console.error('Error al obtener los clientes: ', error);
-        res.status(500).json({
-            message: 'Error al obtener los clientes',
-        });
+    } catch (err) {
+        next(err);
     }
 };
 
-const getClient = async (req, res) => {
+const getClient = async (req, res, next) => {
     try {
         const { id } = req.params;
         const client = await clientService.listClient(id);
         res.status(200).json(client);
-    } catch (error) {
-        console.error('Error al obtener el clien: ', error);
-        res.status(500).json({
-            message: 'Error al obtener el cliente'
-        });
+    } catch (err) {
+        next(err);
     }
 };
 
-const createClient = async (req, res) => {
+const createClient = async (req, res, next) => {
     try {
         const { nombre, correo, telefono } = req.body;
-        const response = await clientService.createClient(nombre, correo, telefono);
-        if (response.status) {
-            res.status(201).json({ message: `cliente creado correctamente: ${response.message}` });
-        }else {
-            res.status(401).json({ message: response.message });
-        } 
-            
-    } catch (error) {
-        res.status(500).json(error);
+        const clientId = await clientService.createClient(nombre, correo, telefono);
+        res.status(201).json({ message: 'Cliente creado correctamente', clientId });
+    } catch (err) {
+        next(err);
     }
 };
 
-const updateStatus = async(req, res) => {
+const updateStatus = async (req, res, next) => {
     try {
         const { id } = req.params;
         await clientService.updateStatus(id);
         res.status(200).json({message: 'el estado del cliente ha sido actualizado correctamente'});
-    } catch (error) {
-        console.error('Error al actualizar el cliente: ', error);
-        res.status(500).json('Error al actualizar el estado del cliente o cliente no encontrado');
-    }    
+    } catch (err) {
+        next(err);
+    }
 };
 
-const updateCliente = async (req, res) => {
+const updateCliente = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
         await clientService.updateCliente(id, data);
         res.status(200).json({ message: 'el cliente ha sido actualizado correctamente' });
-    } catch (error) {
-        console.error('Error al actualizar el cliente: ', error);
-        res.status(500).json('Error al actualizar cliente o cliente no encontrado');
+    } catch (err) {
+        next(err);
     }
 };
 
-module.exports = { getClients, getClient, createClient, updateStatus, updateCliente };
+module.exports = {getClients, getClient, createClient, updateStatus, updateCliente};
