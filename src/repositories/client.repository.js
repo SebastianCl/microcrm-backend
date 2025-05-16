@@ -39,7 +39,7 @@ const createClient = async (name, email, phone) => {
 
 };
 
-const updateStatus = async (id) => {
+const toggleStatus = async (id) => {
   try {
 
     // verificamos que si exista el cliente (getFindById lanza error si no existe)
@@ -82,4 +82,4 @@ const updateCliente = async (id, data) => {
 
 };
 
-module.exports = { getAllClients, getFindById, createClient, updateStatus, updateCliente };
+module.exports = { getAllClients, getFindById, createClient, toggleStatus, updateCliente };

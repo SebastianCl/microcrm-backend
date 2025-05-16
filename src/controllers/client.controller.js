@@ -29,10 +29,10 @@ const createClient = async (req, res, next) => {
     }
 };
 
-const updateStatus = async (req, res, next) => {
+const toggleStatus = async (req, res, next) => {
     try {
         const { id } = req.params;
-        await clientService.updateStatus(id);
+        await clientService.toggleStatus(id);
         res.status(200).json({message: 'el estado del cliente ha sido actualizado correctamente'});
     } catch (err) {
         next(err);
@@ -50,4 +50,4 @@ const updateCliente = async (req, res, next) => {
     }
 };
 
-module.exports = {getClients, getClient, createClient, updateStatus, updateCliente};
+module.exports = {getClients, getClient, createClient, toggleStatus, updateCliente};
