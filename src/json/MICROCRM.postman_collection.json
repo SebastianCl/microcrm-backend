@@ -393,7 +393,7 @@
 					"response": []
 				},
 				{
-					"name": "getProductAdditionById",
+					"name": "getAdditionById",
 					"request": {
 						"auth": {
 							"type": "bearer",

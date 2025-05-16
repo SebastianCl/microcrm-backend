@@ -2,13 +2,13 @@ const db = require('../config/db');
 const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
 
-const getAllProductAdditions = async() =>{
+const getAdditions = async() =>{
   const { rows } = await db.query('SELECT id_adicion, id_producto, nombre, precio_extra, estado FROM adiciones_producto');
   if(rows.length === 0) throw errors.ADDITIONS_NOT_FOUND();
   return rows;
 };
 
-const getProductAdditionById = async(id) => {
+const getAdditionById = async(id) => {
 
   const { rows } = await db.query('SELECT id_adicion, id_producto, nombre, precio_extra, estado FROM adiciones_producto WHERE id_adicion = $1', [id]);
 
@@ -19,7 +19,7 @@ const getProductAdditionById = async(id) => {
 
 const toggleProductAdditionStatus = async(id) => {
   try {
-    const existingProductAddition = await getProductAdditionById(id);
+    const existingProductAddition = await getAdditionById(id);
 
     await db.query('UPDATE adiciones_producto SET estado = NOT estado WHERE id_adicion = $1', [existingProductAddition.id_adicion]);
 
@@ -51,7 +51,7 @@ const createProductAddition = async(idproducto, nombre, precioExtra) => {
 
 const updateAddition = async(id, data) =>{
   try {
-    const existingAddition = await getProductAdditionById(id);
+    const existingAddition = await getAdditionById(id);
 
     const keys = Object.keys(data);
     const values = Object.values(data);
@@ -70,4 +70,4 @@ const updateAddition = async(id, data) =>{
   }
 };
 
-module.exports = { getAllProductAdditions, getProductAdditionById, toggleProductAdditionStatus, createProductAddition, updateAddition };
+module.exports = { getAdditions, getAdditionById, toggleProductAdditionStatus, createProductAddition, updateAddition };

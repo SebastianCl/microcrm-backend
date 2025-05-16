@@ -1,11 +1,11 @@
 const productAdditionsRepo = require('../repositories/product_additions.repository');
 
-const listAdditions = async() =>{
-  return await productAdditionsRepo.getAllProductAdditions();
+const getAdditions = async() =>{
+  return await productAdditionsRepo.getAdditions();
 };
 
-const listAddition = async(id) => {
-  return await productAdditionsRepo.getProductAdditionById(id);
+const getAdditionById = async(id) => {
+  return await productAdditionsRepo.getAdditionById(id);
 };
 
 const toggleProductAdditionStatus = async(id) => {
@@ -20,4 +20,4 @@ const updateAddition = async(id, data) =>{
   return await productAdditionsRepo.updateAddition(id, data);
 };
 
-module.exports = { listAdditions, listAddition, toggleProductAdditionStatus, createProductAddition, updateAddition };
+module.exports = { getAdditions, getAdditionById, toggleProductAdditionStatus, createProductAddition, updateAddition };

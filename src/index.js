@@ -10,7 +10,7 @@ app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/users', require('./routes/user.routes'));
 app.use('/api/clients', require('./routes/client.routes'));
 app.use('/api/products', require('./routes/product.routes'));
-app.use('/api/products-additions', require('./routes/product_additions.routes'));
+app.use('/api/additions', require('./routes/product_additions.routes'));
 
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
