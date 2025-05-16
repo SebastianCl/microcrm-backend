@@ -39,4 +39,15 @@ const createProductAddition = async(req, res, next) =>{
   }
 };
 
-module.exports = {getAllProductAdditions, getProductAdditionById, toggleProductAdditionStatus, createProductAddition };
+const updateAddition = async(req, res, next) =>{
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    await productAdditionsService.updateAddition(id, data);
+    res.status(200).json({message: 'adicion actualizada correctamente'});
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = {getAllProductAdditions, getProductAdditionById, toggleProductAdditionStatus, createProductAddition, updateAddition };

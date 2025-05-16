@@ -49,4 +49,25 @@ const createProductAddition = async(idproducto, nombre, precioExtra) => {
   }
 };
 
-module.exports = { getAllProductAdditions, getProductAdditionById, toggleProductAdditionStatus, createProductAddition};
+const updateAddition = async(id, data) =>{
+  try {
+    const existingAddition = await getProductAdditionById(id);
+
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+
+    const setClause = keys
+      .map((key, index) => `${key} = $${index + 1}`)
+      .join(', ');
+
+      values.push(existingAddition.id_adicion);
+
+      const query = (`UPDATE adiciones_producto SET ${setClause} WHERE id_adicion = $${values.length}`);
+      await db.query(query, values);
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw errors.ADDITION_UPDATE_FAILED();
+  }
+};
+
+module.exports = { getAllProductAdditions, getProductAdditionById, toggleProductAdditionStatus, createProductAddition, updateAddition };
