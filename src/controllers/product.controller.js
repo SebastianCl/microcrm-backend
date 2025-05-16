@@ -19,6 +19,16 @@ const getProduct = async (req, res, next) => {
     }
 };
 
+const getProductAdditions = async(req, res, next) =>{
+  try {
+    const { id } = req.params;
+    const ProductAdditions = await productService.getProductAdditions(id);
+    res.status(200).json(ProductAdditions);  
+  } catch (err) {
+    next(err);
+  }
+};
+
 const createProduct = async (req, res, next) => {
   try {
     const { nombre, descripcion, precio, stock } = req.body;
@@ -47,18 +57,15 @@ const updateProduct = async (req, res, next) => {
     }
 };
 
-
-const updateStatus = async (req, res) => {
+const updateStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
     await productService.updateStatus(id);
     res.status(200).json({ message: 'Producto eliminado correctamente' });
-  } catch (error) {
-    console.error('Error al eliminar el producto:', error);
-    res.status(500).json({ message: 'Error al eliminar el producto' });
+  } catch (err) {
+    next(err);
   }
 };
-
 
 
 
@@ -68,4 +75,5 @@ module.exports = {
   createProduct,
   updateProduct,
   updateStatus,
+  getProductAdditions
 };

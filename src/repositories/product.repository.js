@@ -17,6 +17,13 @@ const getFindById = async (id) => {
   return rows[0];
 };
 
+const getProductAdditions = async(id) =>{
+  const existingProduct = await getFindById(id);
+  const {rows}  = await db.query('SELECT * FROM get_adiciones_por_producto($1)', [existingProduct.id_producto]);
+
+  return rows[0];
+};
+
 const createProduct = async (name, description, price, stock) => {
   try {
     const existing = await db.query(
@@ -81,4 +88,5 @@ module.exports = {
   createProduct,
   updateStatus,
   updateProduct,
+  getProductAdditions
 };

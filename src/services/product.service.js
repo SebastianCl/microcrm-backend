@@ -8,6 +8,10 @@ const listProduct = async(id) => {
   return await productRepo.getFindById(id);
 };
 
+const getProductAdditions = async(id) =>{
+  return await productRepo.getProductAdditions(id);
+}; 
+
 const createProduct = async( nombre, descripcion, precio, stock ) => {
   return await productRepo.createProduct( nombre, descripcion, precio, stock );
 };
@@ -20,5 +24,5 @@ const updateProduct = async(id,data) => {
   return await productRepo.updateProduct(id,data);
 };
 
-module.exports = { listProducts, listProduct, createProduct, updateStatus, updateProduct };
+module.exports = { listProducts, listProduct, createProduct, updateStatus, updateProduct, getProductAdditions };
 
