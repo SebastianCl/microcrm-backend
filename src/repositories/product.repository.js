@@ -25,9 +25,6 @@ const createProduct = async (name, description, price, stock) => {
     );
 
     if (existing.rows.length > 0) throw errors.PRODUCT_ALREADY_EXISTS();
-
-    console.log (name, description, price, stock)
-
     const { rows } = await db.query(
       'INSERT INTO productos(nombre, descripcion, precio, stock) VALUES($1, $2, $3, $4) RETURNING id_producto',
       [name, description, price, stock]

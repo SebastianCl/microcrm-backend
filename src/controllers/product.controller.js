@@ -22,7 +22,6 @@ const getProduct = async (req, res, next) => {
 const createProduct = async (req, res, next) => {
   try {
     const { nombre, descripcion, precio, stock } = req.body;
-    console.log(nombre, descripcion, precio, stock)
     const result = await productService.createProduct(
       nombre,
       descripcion,
@@ -33,11 +32,11 @@ const createProduct = async (req, res, next) => {
       .status(201)
       .json({ message: 'Producto creado correctamente', data: result });
   } catch (err) {
-    next(err)
+    next(err);
   }
 };
 
-const updateProduct = async (req, res,) => {
+const updateProduct = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;

@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
-//Create for register.
+// Create for register.
 const createUser = async ({ cliente, username, password }) => {
   try {
    const existing = await db.query(
@@ -23,19 +23,19 @@ const createUser = async ({ cliente, username, password }) => {
     
   }
 };
-//Login.
+// Login.
 const findByUsername = async (username) => {
   const { rows } = await db.query('SELECT * FROM usuarios WHERE nombre_usuario = $1', [username]);
   if (rows.length === 0) throw errors.USER_NOT_FOUND();
   return rows[0];
 };
-//All Users.
+// All Users.
 const getAllUsers = async () => {
   const { rows } = await db.query('SELECT id_usuario, nombre_usuario FROM usuarios');
   if (rows.length === 0) throw errors.USERS_NOT_FOUND();
   return rows;
 };
-//User one
+// User one
 const getFindById = async (id) => {
   const { rows } = await db.query(
     'SELECT id_cliente, nombre_usuario, estado FROM usuarios WHERE id_usuario = $1', [id]);
