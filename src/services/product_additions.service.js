@@ -1,4 +1,4 @@
-const productAdditionsRepo = require('../repositories/productAdditions.repository');
+const productAdditionsRepo = require('../repositories/product_additions.repository');
 
 const listAdditions = async() =>{
   return await productAdditionsRepo.getAllProductAdditions();
