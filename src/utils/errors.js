@@ -34,6 +34,13 @@ const errors = {
   ADDITION_CREATION_FAILED: () => new ApiError(500, 'Error al crear la adición'),
   ADDITION_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la adición'),
 
+  // Errores para promociones
+  PROMOTIONS_NOT_FOUND: () => new ApiError(404, 'Promociones no encontradas'),
+  PROMOTION_NOT_FOUND: () => new ApiError(404, 'Promoción no encontrada'),
+  PROMOTION_ALREADY_EXISTS: () => new ApiError(409, 'La promoción ya existe'),
+  PROMOTION_CREATION_FAILED: () => new ApiError(500, 'Error al crear la promoción'),
+  PROMOTION_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la promoción'),
+
 };
 
 module.exports = errors;
