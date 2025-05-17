@@ -400,7 +400,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjIxODksImV4cCI6MTc0NzQyNTc4OX0.-dVI3KUYcA2eO1KSWITMcjbVPsx3FXxo2SRMPfXfQ0c",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjY0MTUsImV4cCI6MTc0NzQzMDAxNX0._h0a_14hdvBSf_6xLqlCE0yCCiAxEiiBNO3vWqBxFxY",
 									"type": "string"
 								}
 							]
@@ -529,6 +529,172 @@
 								"api",
 								"additions",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotions",
+			"item": [
+				{
+					"name": "getPromotions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjY0MTUsImV4cCI6MTc0NzQzMDAxNX0._h0a_14hdvBSf_6xLqlCE0yCCiAxEiiBNO3vWqBxFxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/promotions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPromotionById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjY0MTUsImV4cCI6MTc0NzQzMDAxNX0._h0a_14hdvBSf_6xLqlCE0yCCiAxEiiBNO3vWqBxFxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/promotions/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"promotions",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPromotion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjY0MTUsImV4cCI6MTc0NzQzMDAxNX0._h0a_14hdvBSf_6xLqlCE0yCCiAxEiiBNO3vWqBxFxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"f\",\r\n  \"descripcion\": \"ffffffffffffffff\",\r\n  \"descuento_porcentaje\": 20.00,\r\n  \"fecha_inicio\": \"2025-06-05\",\r\n  \"fecha_fin\": \"2025-06-20\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/promotions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggleStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc0MjY0MTUsImV4cCI6MTc0NzQzMDAxNX0._h0a_14hdvBSf_6xLqlCE0yCCiAxEiiBNO3vWqBxFxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/promotions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"promotions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePromotions",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"day of menino\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/promotions/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"promotions",
+								"7"
 							]
 						}
 					},
