@@ -19,6 +19,16 @@ const getMesaById = async(req, res, next) =>{
   }
 };
 
+const getMesaByClientId = async(req, res, next) => {
+  try {
+    const { id } = req.params;
+    const mesas = await mesasService.getMesaByClientId(id);
+    res.status(200).json(mesas);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const createMesa = async(req, res, next) => {
   try {
     const {id_cliente, nombre_mesa} = req.body;
@@ -49,4 +59,4 @@ const updateMesa = async(req, res, next) => {
     next(err);
   }
 };
-module.exports = { getAllMesas, getMesaById, createMesa, toggleMesaStatus, updateMesa };
+module.exports = { getAllMesas, getMesaById, getMesaByClientId,  createMesa, toggleMesaStatus, updateMesa };

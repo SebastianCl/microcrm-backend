@@ -16,6 +16,14 @@ const getMesaById = async(id) => {
   return rows[0];
 };
 
+const getMesaByClientId = async(id) => {
+  const { rows } = await db.query('SELECT id_mesa, id_cliente, nombre_mesa, activa FROM mesas WHERE id_cliente = $1', [id]);
+
+  if(rows.length === 0) throw errors.MESAS_NOT_FOUND();
+
+  return rows;
+};
+
 const createMesa = async(id_cliente, nombre_mesa) =>{
   try {
     const existingMesa = await db.query(
@@ -38,10 +46,8 @@ const createMesa = async(id_cliente, nombre_mesa) =>{
 const toggleMesaStatus = async(id) =>{
   try {
     const existingMesa = await getMesaById(id);
-    console.log(existingMesa.id_mesa);
     await db.query('UPDATE mesas SET activa = NOT activa WHERE id_mesa = $1', [existingMesa.id_mesa]);
   } catch (err) {
-    console.log(err);
     if (err instanceof ApiError) throw err;
     throw errors.MESA_CREATION_FAILED();
   }
@@ -62,9 +68,8 @@ const updateMesa = async(id, data) => {
     const query = `UPDATE mesas SET ${setClause} WHERE id_mesa = $${values.length}`;
     await db.query(query, values);
   } catch (err) {
-    console.log(err);
     if (err instanceof ApiError) throw err;
     throw errors.MESA_CREATION_FAILED();
   }
 };
-module.exports = { getAllMesas, getMesaById, createMesa, toggleMesaStatus, updateMesa };
+module.exports = { getAllMesas, getMesaById, getMesaByClientId, createMesa, toggleMesaStatus, updateMesa };
