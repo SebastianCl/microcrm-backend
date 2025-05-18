@@ -36,9 +36,7 @@ const createProduct = async (name, description, price, stock) => {
       'INSERT INTO productos(nombre, descripcion, precio, stock) VALUES($1, $2, $3, $4) RETURNING id_producto',
       [name, description, price, stock]
     );
-
-
-    console.log(rows[0].id_producto);
+    return rows[0].id_producto;
   } catch (err) {
     if (err instanceof ApiError) throw err;
     throw errors.PRODUCT_CREATION_FAILED();

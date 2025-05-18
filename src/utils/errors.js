@@ -41,6 +41,13 @@ const errors = {
   PROMOTION_CREATION_FAILED: () => new ApiError(500, 'Error al crear la promoción'),
   PROMOTION_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la promoción'),
 
+   // Errores para mesas
+  MESAS_NOT_FOUND: () => new ApiError(404, 'Mesas no encontradas'),
+  MESA_NOT_FOUND: () => new ApiError(404, 'Mesa no encontrada'),
+  MESA_ALREADY_EXISTS: () => new ApiError(409, 'La mesa ya existe'),
+  MESA_CREATION_FAILED: () => new ApiError(500, 'Error al crear la mesa'),
+  MESA_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la mesa'),
+
 };
 
 module.exports = errors;
