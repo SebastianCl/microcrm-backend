@@ -86,7 +86,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcyNjg1NTgsImV4cCI6MTc0NzI3MjE1OH0.ZyoVDn1rhjOVnMeqo6gkPr1GcsKvrjOxNWkQWwx-Nvk",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc1OTAxNTksImV4cCI6MTc0NzU5Mzc1OX0.0_rNaMYE_ofH-m2QghNhu4i-K-EtaHbqFgYgcVoozXo",
 									"type": "string"
 								}
 							]
@@ -95,7 +95,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"empresaTest\",\r\n    \"correo\" : \"empresatest@gmail.com\",\r\n    \"telefono\": \"3503334582\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"everth\",\r\n    \"correo\" : \"everth@gmail.com\",\r\n    \"telefono\": \"00000000000\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -695,6 +695,208 @@
 								"api",
 								"promotions",
 								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mesas",
+			"item": [
+				{
+					"name": "getAllMesas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc1OTAxNTksImV4cCI6MTc0NzU5Mzc1OX0.0_rNaMYE_ofH-m2QghNhu4i-K-EtaHbqFgYgcVoozXo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"empresaTest\",\r\n    \"correo\" : \"empresatest@gmail.com\",\r\n    \"telefono\": \"3503334582\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mesas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mesas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMesaById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc1OTAxNTksImV4cCI6MTc0NzU5Mzc1OX0.0_rNaMYE_ofH-m2QghNhu4i-K-EtaHbqFgYgcVoozXo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mesas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mesas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMesaByClientId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "createMesa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc1OTAxNTksImV4cCI6MTc0NzU5Mzc1OX0.0_rNaMYE_ofH-m2QghNhu4i-K-EtaHbqFgYgcVoozXo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 3,\r\n    \"nombre_mesa\" : \"mesa de jaiso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mesas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mesas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggleMesaStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcyNjg1NTgsImV4cCI6MTc0NzI3MjE1OH0.ZyoVDn1rhjOVnMeqo6gkPr1GcsKvrjOxNWkQWwx-Nvk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"nombre_mesa\" : \"mesa de oween\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mesas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mesas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMesa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcyNjg1NTgsImV4cCI6MTc0NzI3MjE1OH0.ZyoVDn1rhjOVnMeqo6gkPr1GcsKvrjOxNWkQWwx-Nvk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre_mesa\" : \"mesa 19\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mesas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mesas",
+								"1"
 							]
 						}
 					},
