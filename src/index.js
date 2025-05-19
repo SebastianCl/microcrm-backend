@@ -13,7 +13,8 @@ app.use('/api/products', require('./routes/product.routes'));
 app.use('/api/additions', require('./routes/product_additions.routes'));
 app.use('/api/promotions', require('./routes/promotions.routes'));
 app.use('/api/mesas', require('./routes/mesas.routes'));
-
+app.use('/api/combos', require('./routes/combos.routes'));
+app.use('/api/combo_product', require('./routes/combo_product.routes'));
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
 

@@ -48,6 +48,20 @@ const errors = {
   MESA_CREATION_FAILED: () => new ApiError(500, 'Error al crear la mesa'),
   MESA_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la mesa'),
 
+   // Errores para combos
+  COMBOS_NOT_FOUND: () => new ApiError(404, 'Combos no encontrados'),
+  COMBO_NOT_FOUND: () => new ApiError(404, 'Combo no encontrado'),
+  COMBO_ALREADY_EXISTS: () => new ApiError(409, 'El combo ya existe'),
+  COMBO_CREATION_FAILED: () => new ApiError(500, 'Error al crear el combo'),
+  COMBO_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el combo'),
+
+   // Errores para combos_Producto
+  COMBO_PRODUCTS_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrados'),
+  COMBO_PRODUCT_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrado'),
+  COMBO_ALREADY_EXISTS: () => new ApiError(409, 'El combo ya existe'),
+  COMBO_PRODUCT_CREATION_FAILED: () => new ApiError(500, 'Error al crear el combo'),
+  COMBO_PRODUCT_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el combo'),
+
 };
 
 module.exports = errors;
