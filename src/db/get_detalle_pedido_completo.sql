@@ -1,17 +1,19 @@
 -- Funcion para Obtener el detalle del Pedido
-CREATE OR REPLACE FUNCTION get_detalle_pedido_completo(p_id_pedido INT)
-RETURNS TABLE (
-    id_detalle_pedido INT,
-    producto VARCHAR,
-    cantidad INT,
-    precio_unitario NUMERIC,
-    descuento NUMERIC,
-    adicion VARCHAR,
-    precio_adicion NUMERIC,
-    cantidad_adicion INT,
-    mesa VARCHAR
+CREATE OR REPLACE FUNCTION public.get_detalle_pedido_completo(p_id_pedido integer)
+RETURNS TABLE(
+    id_detalle_pedido integer, 
+    producto character varying, 
+    cantidad integer, 
+    precio_unitario numeric, 
+    descuento numeric, 
+    adicion character varying, 
+    precio_adicion numeric, 
+    cantidad_adicion integer, 
+    mesa character varying,
+    estado_pedido character varying
 )
-AS $$
+LANGUAGE plpgsql
+AS $function$
 BEGIN
     RETURN QUERY
     SELECT 
@@ -27,7 +29,8 @@ BEGIN
             CASE 
                 WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar'
                 ELSE 'N/A'
-            END)
+            END),
+        pe.estado::character varying
     FROM 
         detalle_pedido dp
     INNER JOIN productos p ON p.id_producto = dp.id_producto
@@ -38,6 +41,6 @@ BEGIN
     WHERE 
         dp.id_pedido = p_id_pedido;
 END;
-$$ LANGUAGE plpgsql;
+$function$;
 -- Como usarlo
 -- SELECT * FROM get_detalle_pedido_completo(4);
