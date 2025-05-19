@@ -53,7 +53,14 @@ const errors = {
   EXPENSE_NOT_FOUND: () => new ApiError(404, 'Gasto no encontrado'),
   EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El gasto ya existe'),
   EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el gasto'),
-  EXPENSE_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el gasto')
+
+  // Errores para pedidos
+  PEDIDOS_NOT_FOUND: () => new ApiError(404, 'No se encontró el pedido'),
+  PEDIDO_CREATION_FAILED: () => new ApiError(500, 'Error al crear el pedido'),
+  PEDIDO_DETALLE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el detalle del pedido'),
+  PEDIDO_ADICION_CREATION_FAILED: () => new ApiError(500, 'Error al agregar adiciones al pedido'),
+  PEDIDO_DETALLE_NOT_FOUND: () => new ApiError(404, 'No se encontró el detalle del pedido'),
+  PEDIDO_STATUS_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el estado del pedido')
 };
 
 module.exports = errors;

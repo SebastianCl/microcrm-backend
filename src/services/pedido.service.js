@@ -1,6 +1,5 @@
 const pedidoRepo  = require('../repositories/pedido.repository');
 const ApiError = require('../utils/apiError');
-const { userErrors } = require('../utils/errors');
 
 const crearPedido = async (data) => {
   const { id_cliente, id_usuario, id_mesa, tipo_pedido, productos } = data;
@@ -31,7 +30,7 @@ const obtenerDetallePedido = async (id_pedido) => {
 };
 
 const actualizarEstadoPedido = async (id_pedido, estado) => {
-  const estadosValidos = ['pendiente', 'En Proceso', 'cancelado', 'Finalizado'];
+  const estadosValidos = ['pendiente', 'procesado', 'cancelado'];
   if (!estadosValidos.includes(estado)) {
     throw new ApiError(400, 'Estado inválido');
   }
