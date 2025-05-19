@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a378e314-3327-4814-8476-905dbc8e29aa",
+		"_postman_id": "418c1186-bce4-4390-9d53-4b195072ee9f",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "43623464",
-		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-a378e314-3327-4814-8476-905dbc8e29aa?action=share&source=collection_link&creator=43623464"
+		"_exporter_id": "21119789"
 	},
 	"item": [
 		{
@@ -352,6 +351,144 @@
 								"api",
 								"products",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gastos",
+			"item": [
+				{
+					"name": "getAllExpenses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpenseById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/expenses/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpensesByClientId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/expenses/client/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses",
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"descripcion\" : \"ninguno\",\r\n    \"monto\": 30000,\r\n    \"fecha\": \"2025-10-29\",\r\n    \"tipo\": \"mensual\" // diario and mensual\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses",
+								""
 							]
 						}
 					},
@@ -784,7 +921,10 @@
 					"name": "getMesaByClientId",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -905,13 +1045,463 @@
 			]
 		},
 		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Crear Pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTk1NzgsImV4cCI6MTc0NzYyMzE3OH0.267R9OvLGZkmiwSqQ-M8JLgrtKe3OeUe0yjrwtLw7DA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_cliente\": 3,\r\n  \"id_usuario\": 1,\r\n  \"id_mesa\": 8, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 10, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //procesado, cancelado, pendiente\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pedido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pedido",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": 2, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 1,\r\n      \"cantidad\": 2,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //En proceso, cancelado, Finalizado\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pedido/3/detalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pedido",
+								"3",
+								"detalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambio Estado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"estado\": \"procesado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pedido/3/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pedido",
+								"3",
+								"estado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Combos",
+			"item": [
+				{
+					"name": "getCombos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getCombo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTA2NzAsImV4cCI6MTc0NzYxNDI3MH0.TLdQOzw9wpLPjoykS8pzoUaxKxyQvri0ftWEBy-WKc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCombo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTA2NzAsImV4cCI6MTc0NzYxNDI3MH0.TLdQOzw9wpLPjoykS8pzoUaxKxyQvri0ftWEBy-WKc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"MasterCombo\",\r\n    \"descripcion\" : \"Combo de por demas de maestro\",\r\n    \"precio_combo\": \"00000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTA2NzAsImV4cCI6MTc0NzYxNDI3MH0.TLdQOzw9wpLPjoykS8pzoUaxKxyQvri0ftWEBy-WKc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCombo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTA2NzAsImV4cCI6MTc0NzYxNDI3MH0.TLdQOzw9wpLPjoykS8pzoUaxKxyQvri0ftWEBy-WKc0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"HerticoGratis\",\r\n    \"descripcion\" : \"un herlatico sin costo por la compra de tres productos\",\r\n    \"precio_combo\": \"00000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "combo_product",
+			"item": [
+				{
+					"name": "GetCombo_products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2OTY0MjksImV4cCI6MTc0NzcwMDAyOX0.Mzv1TMlhtftzSTClu6WC0sAckhKePvJK6k1j4H-eUxA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/combo_product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combo_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCombo_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2OTY0MjksImV4cCI6MTc0NzcwMDAyOX0.Mzv1TMlhtftzSTClu6WC0sAckhKePvJK6k1j4H-eUxA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/combo_product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combo_product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCombo_Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2OTY0MjksImV4cCI6MTc0NzcwMDAyOX0.Mzv1TMlhtftzSTClu6WC0sAckhKePvJK6k1j4H-eUxA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_combo\": 1,\r\n  \"id_producto\": 4,\r\n  \"cantidad\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combo_product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combo_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2OTUzNzEsImV4cCI6MTc0NzY5ODk3MX0._MHcluGGJnKehHCUtgmQh6AjMTI8uhaUJGopNliKVk8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_combo\": 2,\r\n  \"id_producto\": 3,\r\n  \"cantidad\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/combo_product/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"combo_product",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "login",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2OTEzNTksImV4cCI6MTc0NzY5NDk1OX0._ygC7zWH-sag2VpPYQSkF02GqL049MhXTuxHXGQ1nrM",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"username\": \"oween\", \"password\": \"123\" }",
+					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -936,6 +1526,9 @@
 		},
 		{
 			"name": "usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -949,6 +1542,15 @@
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:3000/api/users",
 					"protocol": "http",
@@ -981,7 +1583,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\": \"oween\", \"password\": \"123\" }",
+					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
 					"options": {
 						"raw": {
 							"language": "json"

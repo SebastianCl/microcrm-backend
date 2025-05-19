@@ -15,6 +15,9 @@ app.use('/api/promotions', require('./routes/promotions.routes'));
 app.use('/api/mesas', require('./routes/mesas.routes'));
 app.use('/api/combos', require('./routes/combos.routes'));
 app.use('/api/combo_product', require('./routes/combo_product.routes'));
+app.use('/api/pedido', require('./routes/pedido.routes'));
+app.use('/api/expenses', require('./routes/expenses.routes'));
+
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
 
