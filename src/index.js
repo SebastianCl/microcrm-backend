@@ -14,6 +14,7 @@ app.use('/api/additions', require('./routes/product_additions.routes'));
 app.use('/api/promotions', require('./routes/promotions.routes'));
 app.use('/api/mesas', require('./routes/mesas.routes'));
 app.use('/api/pedido', require('./routes/pedido.routes'));
+app.use('/api/expenses', require('./routes/expenses.routes'));
 
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));

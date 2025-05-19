@@ -48,6 +48,12 @@ const errors = {
   MESA_CREATION_FAILED: () => new ApiError(500, 'Error al crear la mesa'),
   MESA_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la mesa'),
 
+  // Errores para gastos
+  EXPENSES_NOT_FOUND: () => new ApiError(404, 'Gastos no encontrados'),
+  EXPENSE_NOT_FOUND: () => new ApiError(404, 'Gasto no encontrado'),
+  EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El gasto ya existe'),
+  EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el gasto'),
+  EXPENSE_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el gasto')
 };
 
 module.exports = errors;
