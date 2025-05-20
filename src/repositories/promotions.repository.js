@@ -6,7 +6,7 @@ const errors = require('../utils/errors');
 const getAllPromotions = async () => {
   const { rows } = await db.query('SELECT id_promocion, nombre, descripcion, descuento_porcentaje, fecha_inicio, fecha_fin, estado FROM promociones');
   if (rows.length === 0) throw errors.PROMOTIONS_NOT_FOUND();
-  return rows[0];
+  return rows;
 };
 
 const getPromotionById = async (id) => {
