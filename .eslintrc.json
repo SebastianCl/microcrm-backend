@@ -17,6 +17,7 @@
       "error",
       "single"
     ],
+    "prefer-const": "off",
     "camelcase": "off"
   }
 }
