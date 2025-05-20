@@ -1,9 +1,26 @@
 require('dotenv').config();
 const express = require('express');
 const {errorHandler, notFound} = require('./middlewares/errorHandler');
+const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+
+//Establecer origin cors
+let front = process.env.FRONTEND_URLs;
+// Configurar múltiples orígenes para CORS
+const allowedOrigins = front.split(',');
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('No permitido por CORS'));
+        }
+    }
+};
+
+app.use(cors(corsOptions));
 
 // Rutas
 app.use('/api/auth', require('./routes/auth.routes'));
