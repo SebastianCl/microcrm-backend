@@ -27,7 +27,6 @@ const createExpense = async( id_cliente, descripcion, monto, fecha, tipo ) => {
 
     return rows[0].id_gasto;
   } catch (error) {
-    console.log(error);
     throw errors.EXPENSE_CREATION_FAILED();
   }
 };

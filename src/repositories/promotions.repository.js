@@ -21,12 +21,10 @@ const createPromotion = async(nombre, descripcion, descuento_porcentaje, fecha_i
     'SELECT id_promocion FROM promociones WHERE nombre = $1', [nombre]);
 
     if(existing.rows.length > 0) throw errors.PROMOTION_ALREADY_EXISTS();
-    console.log(nombre, descripcion, descuento_porcentaje, fecha_inicio, fecha_fin);
     const {rows} = await db.query(
       'INSERT INTO promociones(nombre,descripcion,descuento_porcentaje,fecha_inicio,fecha_fin) VALUES($1, $2, $3, $4, $5) RETURNING id_promocion', [nombre, descripcion, descuento_porcentaje, fecha_inicio, fecha_fin]);
     return rows[0].id_promocion;
   } catch (err) {
-    console.log(err);
     if (err instanceof ApiError) throw err;
     throw errors.PROMOTION_CREATION_FAILED();
   }
