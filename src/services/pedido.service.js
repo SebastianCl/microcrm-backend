@@ -1,4 +1,4 @@
-const pedidoRepo  = require('../repositories/pedido.repository');
+const pedidoRepo = require('../repositories/pedido.repository');
 const ApiError = require('../utils/apiError');
 
 const crearPedido = async (data) => {
@@ -25,6 +25,21 @@ const crearPedido = async (data) => {
   return id_pedido;
 };
 
+const AddproductoPedido = async (productos, id_pedido) => {
+  for (const producto of productos.productos) {
+    const id_detalle = await pedidoRepo.insertarDetallePedido(id_pedido, producto);
+
+    if (producto.adiciones && producto.adiciones.length > 0) {
+      for (const adicion of producto.adiciones) {
+        await pedidoRepo.insertarDetalleAdicion(id_detalle, adicion);
+      }
+    }
+  }
+
+  return id_pedido;
+};
+
+
 const obtenerDetallePedido = async (id_pedido) => {
   return await pedidoRepo.obtenerDetallePedido(id_pedido);
 };
@@ -37,4 +52,4 @@ const actualizarEstadoPedido = async (id_pedido, estado) => {
   await pedidoRepo.actualizarEstadoPedido(id_pedido, estado);
 };
 
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido};
+module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido };

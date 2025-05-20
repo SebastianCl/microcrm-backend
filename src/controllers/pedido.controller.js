@@ -9,6 +9,16 @@ const crearPedido = async (req, res, next) => {
   }
 };
 
+const AddproductoPedido = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const pedidoId = await pedidoService.AddproductoPedido(req.body,id);
+    res.status(201).json({ success: true, id_pedido: pedidoId });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const obtenerDetallePedido = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -30,4 +40,4 @@ const actualizarEstadoPedido = async (req, res, next) => {
   }
 };
 
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido };
+module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido };
