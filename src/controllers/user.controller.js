@@ -19,4 +19,14 @@ const getUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getUsers, getUser };
+const createUser = async (req, res, next) => {
+  try {
+    const userData = req.body;
+    const userId = await userService.createNewUser(userData);
+    res.status(201).json({ id: userId, message: 'Usuario creado exitosamente' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getUsers, getUser, createUser };

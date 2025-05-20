@@ -8,4 +8,8 @@ const User = async (id) => {
   return await userRepo.getFindById(id);
 };
 
-module.exports = { listUsers,User };
+const createNewUser = async (userData) => {
+  return await userRepo.createUser(userData);
+};
+
+module.exports = { listUsers, User, createNewUser };
