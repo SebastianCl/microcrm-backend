@@ -9,6 +9,10 @@ const getVentaById = async (id) => {
     return await ventasRepo.getVentaById(id);
 };
 
+const getDetallesVentaById = async(id) => {
+    return await ventasRepo.getDetallesVentaById(id);
+};
+
 const createVenta = async (data) => {
     const {id_cliente, id_usuario, fecha, total, productos} = data;
     
@@ -24,4 +28,4 @@ const createVenta = async (data) => {
     return id_venta;
 };
 
-module.exports = { getAllVentas, getVentaById, createVenta };
+module.exports = { getAllVentas, getVentaById, getDetallesVentaById,  createVenta };

@@ -28,4 +28,14 @@ const createVenta = async (req, res, next) => {
     }
 };
 
-module.exports = { getAllVentas, getVentaById, createVenta };
+const getDetallesVentaById = async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const detallesVenta = await  ventasService.getDetallesVentaById(id);
+        res.status(200).json(detallesVenta);
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta };
