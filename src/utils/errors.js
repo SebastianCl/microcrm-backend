@@ -85,6 +85,7 @@ const errors = {
 
   // Errores para detalles de venta
   DETALLES_VENTAS_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
+  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados')
 };
 
 module.exports = errors;
