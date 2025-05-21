@@ -52,4 +52,8 @@ const actualizarEstadoPedido = async (id_pedido, estado) => {
   await pedidoRepo.actualizarEstadoPedido(id_pedido, estado);
 };
 
-module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido };
+const getPedidosDelDia = async (estado) => {
+  return await pedidoRepo.getPedidosDelDia(estado);
+};
+
+module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia };

@@ -70,10 +70,20 @@ const actualizarEstadoPedido = async (id_pedido, estado) => {
   }
 };
 
+const getPedidosDelDia = async (estado) => {
+  const query = estado
+    ? 'SELECT * FROM get_pedidos_del_dia($1)'
+    : 'SELECT * FROM get_pedidos_del_dia()';
+  const values = estado ? [estado] : [];
+  const result = await db.query(query, values);
+  return result.rows;
+};
+
 module.exports = {
   insertarPedido,
   insertarDetallePedido,
   insertarDetalleAdicion,
   obtenerDetallePedido,
-  actualizarEstadoPedido
+  actualizarEstadoPedido,
+  getPedidosDelDia
 };

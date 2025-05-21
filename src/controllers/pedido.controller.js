@@ -40,4 +40,13 @@ const actualizarEstadoPedido = async (req, res, next) => {
   }
 };
 
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido };
+const getPedidosDelDia = async (req, res, next) => {
+  try {
+    const { estado } = req.query;
+    const pedidos = await pedidoService.getPedidosDelDia(estado);
+    res.json({ success: true, data: pedidos });
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia };

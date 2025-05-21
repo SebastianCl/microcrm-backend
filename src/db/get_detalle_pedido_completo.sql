@@ -10,7 +10,10 @@ RETURNS TABLE(
     precio_adicion numeric, 
     cantidad_adicion integer, 
     mesa character varying,
-    estado_pedido character varying
+    estado_pedido character varying,
+    nombre_cliente character varying,
+    nombre_usuario character varying,
+    correo_cliente character varying
 )
 LANGUAGE plpgsql
 AS $function$
@@ -30,13 +33,18 @@ BEGIN
                 WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar'
                 ELSE 'N/A'
             END),
-        pe.estado::character varying
+        pe.estado::character varying,
+        c.nombre AS nombre_cliente,
+        u.nombre_usuario,
+        c.correo AS correo_cliente
     FROM 
         detalle_pedido dp
     INNER JOIN productos p ON p.id_producto = dp.id_producto
+    INNER JOIN pedidos pe ON pe.id_pedido = dp.id_pedido
+    INNER JOIN usuarios u ON pe.id_usuario = u.id_usuario
+    INNER JOIN clientes c ON u.id_cliente = c.id_cliente
     LEFT JOIN detalle_pedido_adiciones dpa ON dpa.id_detalle_pedido = dp.id_detalle_pedido
     LEFT JOIN adiciones_producto ap ON ap.id_adicion = dpa.id_adicion
-    INNER JOIN pedidos pe ON pe.id_pedido = dp.id_pedido
     LEFT JOIN mesas m ON m.id_mesa = pe.id_mesa
     WHERE 
         dp.id_pedido = p_id_pedido;
