@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-//Establecer origin cors
+// Establecer origin cors
 let front = process.env.FRONTEND_URLs;
 // Configurar múltiples orígenes para CORS
 const allowedOrigins = front.split(',');
@@ -34,6 +34,7 @@ app.use('/api/combos', require('./routes/combos.routes'));
 app.use('/api/combo_product', require('./routes/combo_product.routes'));
 app.use('/api/pedido', require('./routes/pedido.routes'));
 app.use('/api/expenses', require('./routes/expenses.routes'));
+app.use('/api/ventas', require('./routes/ventas.routes.js'));
 
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
