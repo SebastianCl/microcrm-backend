@@ -74,7 +74,14 @@ const errors = {
   PEDIDO_DETALLE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el detalle del pedido'),
   PEDIDO_ADICION_CREATION_FAILED: () => new ApiError(500, 'Error al agregar adiciones al pedido'),
   PEDIDO_DETALLE_NOT_FOUND: () => new ApiError(404, 'No se encontró el detalle del pedido'),
-  PEDIDO_STATUS_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el estado del pedido')
+  PEDIDO_STATUS_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el estado del pedido'),
+
+  // Errores para ventas
+  VENTAS_NOT_FOUND: () => new ApiError(404, 'Ventas no encontradas'),
+  VENTA_NOT_FOUND: () => new ApiError(404, 'Venta no encontrada'),
+  VENTA_ALREADY_EXISTS: () => new ApiError(409, 'La venta ya existe'),
+  VENTA_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
+  VENTA_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la venta'),
 };
 
 module.exports = errors;
