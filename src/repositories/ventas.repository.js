@@ -25,4 +25,14 @@ const createVenta = async (id_cliente, id_usuario, fecha, total) => {
 
 };
 
-module.exports = { getAllVentas, getVentaById, createVenta }; 
+const insertarDetalleVenta = async(id_venta, producto ) => {
+    try {
+        const {  id_producto, cantidad, precio_unitario } = producto;
+        const { rows } = await db.query('INSERT INTO detalle_venta(id_venta, id_producto, cantidad, precio_unitario) VALUES($1,$2,$3,$4) RETURNING id_detalle_venta ', [id_venta, id_producto, cantidad, precio_unitario]);
+        return rows[0].id_detalle_venta;
+    } catch (err) {
+        if (err instanceof ApiError) throw err;
+        throw errors.DETALLES_VENTAS_CREATION_FAILED();
+    }
+};
+module.exports = { getAllVentas, getVentaById, createVenta, insertarDetalleVenta }; 

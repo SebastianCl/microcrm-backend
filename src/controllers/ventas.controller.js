@@ -21,8 +21,7 @@ const getVentaById = async (req, res, next) => {
 
 const createVenta = async (req, res, next) => {
     try {
-        const {id_cliente, id_usuario, fecha, total} = req.body;
-        const id_venta = await ventasService.createVenta(id_cliente, id_usuario, fecha, total);
+        const id_venta = await ventasService.createVenta(req.body);
         res.status(201).json({ message: 'Venta creada exitosamente', id_venta });
     } catch (err) {
         next(err);
