@@ -1645,11 +1645,21 @@
 				{
 					"name": "CreateVentas",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg0OTYsImV4cCI6MTc0NzgxMjA5Nn0.BbBwrDwIVvGGGI11zQyy9KkLSlU7P-L73kLhxMZ3Ptc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_cliente\": 4,\r\n    \"id_usuario\": 4,\r\n    \"fecha\": \"2025-05-21\",\r\n    \"total\": \"5000000\"\r\n}",
+							"raw": "{\r\n    \"id_cliente\": 2,\r\n    \"id_usuario\": 3,\r\n    \"fecha\": \"2025-05-21\",\r\n    \"total\": \"30000\",\r\n    \"productos\": [\r\n    {\r\n      \"id_producto\": 1,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1748,7 +1758,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"username\": \"alpha\", \"password\": \"alpha\" }",
+					"raw": "{ \"username\": \"oweenAdmin\", \"password\": \"123\" }",
 					"options": {
 						"raw": {
 							"language": "json"
