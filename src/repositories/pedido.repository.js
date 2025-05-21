@@ -10,7 +10,7 @@ const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_ped
         RETURNING id_pedido`,
       [id_cliente, id_usuario, id_mesa, tipo_pedido]
     );
-    if(rows.length === 0 ) throw errors.PEDIDOS_NOT_FOUND();
+    if (rows.length === 0) throw errors.PEDIDOS_NOT_FOUND();
     return rows[0].id_pedido;
   } catch (error) {
     if (error instanceof ApiError) throw error;
@@ -26,7 +26,7 @@ const insertarDetallePedido = async (id_pedido, { id_producto, cantidad, precio_
       RETURNING id_detalle_pedido`,
       [id_pedido, id_producto, cantidad, precio_unitario]
     );
-    if(rows.length === 0) throw errors.PEDIDO_DETALLE_CREATION_FAILED();
+    if (rows.length === 0) throw errors.PEDIDO_DETALLE_CREATION_FAILED();
     return rows[0].id_detalle_pedido;
   } catch (error) {
     if (error instanceof ApiError) throw error;
