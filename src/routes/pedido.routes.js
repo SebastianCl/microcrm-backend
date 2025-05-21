@@ -6,5 +6,6 @@ const authenticateToken = require('../middlewares/auth.middleware');
 router.post('/', authenticateToken(['admin', 'empleado']), pedidoController.crearPedido);
 router.get('/:id/detalle', authenticateToken(['admin', 'empleado']), pedidoController.obtenerDetallePedido);
 router.patch('/:id/estado',  authenticateToken(['admin']), pedidoController.actualizarEstadoPedido);
+router.get('/', authenticateToken(['admin', 'empleado']), pedidoController.getAll);
 
 module.exports = router;

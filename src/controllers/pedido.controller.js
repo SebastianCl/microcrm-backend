@@ -30,4 +30,14 @@ const actualizarEstadoPedido = async (req, res, next) => {
   }
 };
 
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido };
+const getAll = async (req, res, next) => {
+  try {
+    const ordenes = await pedidoService.getAll();
+    res.json(ordenes);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido, getAll };
