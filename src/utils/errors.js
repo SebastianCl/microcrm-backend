@@ -82,6 +82,9 @@ const errors = {
   VENTA_ALREADY_EXISTS: () => new ApiError(409, 'La venta ya existe'),
   VENTA_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
   VENTA_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la venta'),
+
+  // Errores para detalles de venta
+  DETALLES_VENTAS_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
 };
 
 module.exports = errors;
