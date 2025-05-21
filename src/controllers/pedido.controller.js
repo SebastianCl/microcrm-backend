@@ -39,5 +39,14 @@ const actualizarEstadoPedido = async (req, res, next) => {
     next(error);
   }
 };
+const getAll = async (req, res, next) => {
+  try {
+    // TODO: Filtrar por feha
+    const ordenes = await pedidoService.getAll();
+    res.json(ordenes);
+  } catch (error) {
+    next(error);
+  }
+};
 
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido };
+module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido, getAll };

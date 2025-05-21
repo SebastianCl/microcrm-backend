@@ -7,5 +7,6 @@ router.post('/', authenticateToken(['admin', 'empleado']), pedidoController.crea
 router.get('/:id/detalle', authenticateToken(['admin', 'empleado']), pedidoController.obtenerDetallePedido);
 router.patch('/:id/estado',  authenticateToken(['admin']), pedidoController.actualizarEstadoPedido);
 router.post('/:id/agregar', authenticateToken(['admin', 'empleado']), pedidoController.AddproductoPedido);
+router.get('/', authenticateToken(['admin', 'empleado']), pedidoController.getAll);
 
 module.exports = router;
