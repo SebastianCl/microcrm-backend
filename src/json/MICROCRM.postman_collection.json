@@ -1159,7 +1159,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3NzA0NTUsImV4cCI6MTc0Nzc3NDA1NX0.lozSoqRSHfwuIKApdzsyQN-20Fd8nQTAKAtbIf9zOpE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg3NDQsImV4cCI6MTc0NzgxMjM0NH0.xL_DMvYgHLCyG6q9MbjCbs7xFqrFwZR9khFyMUmssXA",
 									"type": "string"
 								}
 							]
@@ -1203,7 +1203,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3OTc5MTEsImV4cCI6MTc0NzgwMTUxMX0.cPz6u9gyZcSR-suD6Upc409eAyFXYYIAnsURrmuovic",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg3NDQsImV4cCI6MTc0NzgxMjM0NH0.xL_DMvYgHLCyG6q9MbjCbs7xFqrFwZR9khFyMUmssXA",
 									"type": "string"
 								}
 							]
@@ -1246,7 +1246,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3OTc5MTEsImV4cCI6MTc0NzgwMTUxMX0.cPz6u9gyZcSR-suD6Upc409eAyFXYYIAnsURrmuovic",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg4ODAsImV4cCI6MTc0NzgxMjQ4MH0.TTDbWiMpxqJzVk75Z-pve5PiFEw6fTlpcLJdMDNRPIk",
 									"type": "string"
 								}
 							]
@@ -1733,6 +1733,38 @@
 							"path": [
 								"api",
 								"ventas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDetalleVentaById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg3NDQsImV4cCI6MTc0NzgxMjM0NH0.xL_DMvYgHLCyG6q9MbjCbs7xFqrFwZR9khFyMUmssXA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/detalles/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								"detalles",
 								"3"
 							]
 						}
