@@ -616,14 +616,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MTk1NzgsImV4cCI6MTc0NzYyMzE3OH0.267R9OvLGZkmiwSqQ-M8JLgrtKe3OeUe0yjrwtLw7DA"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3OTc5MTEsImV4cCI6MTc0NzgwMTUxMX0.cPz6u9gyZcSR-suD6Upc409eAyFXYYIAnsURrmuovic"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_cliente\": 3,\r\n  \"id_usuario\": 1,\r\n  \"id_mesa\": 8, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 10, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //procesado, cancelado, pendiente\r\n}\r\n",
+							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": 3, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //procesado, cancelado, pendiente\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -682,6 +682,78 @@
 							}
 						},
 						"url": "http://localhost:3000/api/pedido/3/detalle"
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3OTc5MTEsImV4cCI6MTc0NzgwMTUxMX0.cPz6u9gyZcSR-suD6Upc409eAyFXYYIAnsURrmuovic"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": 2, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 1,\r\n      \"cantidad\": 2,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //En proceso, cancelado, Finalizado\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/pedido/dia"
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos All Filtro",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3OTc5MTEsImV4cCI6MTc0NzgwMTUxMX0.cPz6u9gyZcSR-suD6Upc409eAyFXYYIAnsURrmuovic"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": 2, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"en_mesa\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 1,\r\n      \"cantidad\": 2,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"estado\": \"pendiente\" //En proceso, cancelado, Finalizado\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pedido/dia?estado=En proceso",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pedido",
+								"dia"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "En proceso"
+								}
+							]
+						}
 					},
 					"response": []
 				},

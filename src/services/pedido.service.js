@@ -57,8 +57,3 @@ const getPedidosDelDia = async (estado) => {
 };
 
 module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia };
-const getAll = async () => {
-  return await pedidoRepo.getAll();
-};
-
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido, getAll};
