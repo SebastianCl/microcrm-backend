@@ -33,12 +33,31 @@ const createVenta = async (id_cliente, id_usuario, fecha, total) => {
 
 const insertarDetalleVenta = async(id_venta, producto ) => {
     try {
-        const {  id_producto, cantidad, precio_unitario } = producto;
-        const { rows } = await db.query('INSERT INTO detalle_venta(id_venta, id_producto, cantidad, precio_unitario) VALUES($1,$2,$3,$4) RETURNING id_detalle_venta ', [id_venta, id_producto, cantidad, precio_unitario]);
+        const {  id_producto, cantidad, precio_unitario, id_adicion } = producto;
+        const { rows } = await db.query('INSERT INTO detalle_venta(id_venta, id_producto, cantidad, precio_unitario, id_adicion) VALUES($1,$2,$3,$4,$5) RETURNING id_detalle_venta ', [id_venta, id_producto, cantidad, precio_unitario,id_adicion]);
         return rows[0].id_detalle_venta;
     } catch (err) {
         if (err instanceof ApiError) throw err;
         throw errors.DETALLES_VENTAS_CREATION_FAILED();
     }
 };
-module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta, insertarDetalleVenta }; 
+
+const getVentasPorFecha = async ({ fecha, fecha_inicio, fecha_fin }) => {
+  let query = 'SELECT * FROM get_ventas_por_fecha($1, $2, $3)';
+  let values = [
+    fecha || null,
+    fecha_inicio || null,
+    fecha_fin || null
+  ];
+
+  const result = await db.query(query, values);
+  return result.rows;
+};
+module.exports = { 
+    getAllVentas, 
+    getVentaById, 
+    getDetallesVentaById,
+    createVenta, 
+    insertarDetalleVenta, 
+    getVentasPorFecha 
+}; 

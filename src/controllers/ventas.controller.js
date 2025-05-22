@@ -38,4 +38,14 @@ const getDetallesVentaById = async(req, res, next) => {
     }
 };
 
-module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta };
+const getVentasPorFecha = async (req, res, next) => {
+  try {
+    const { fecha, fecha_inicio, fecha_fin } = req.query;
+    const ventas = await ventasService.getVentasPorFecha({ fecha, fecha_inicio, fecha_fin });
+    res.json({ success: true, data: ventas });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta,getVentasPorFecha };

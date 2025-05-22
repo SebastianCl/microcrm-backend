@@ -28,4 +28,14 @@ const createVenta = async (data) => {
     return id_venta;
 };
 
-module.exports = { getAllVentas, getVentaById, getDetallesVentaById,  createVenta };
+const getVentasPorFecha = async ({ fecha, fecha_inicio, fecha_fin }) => {
+  return await ventasRepo.getVentasPorFecha({ fecha, fecha_inicio, fecha_fin });
+};
+
+module.exports = { 
+    getAllVentas, 
+    getVentaById, 
+    getDetallesVentaById,  
+    createVenta,
+    getVentasPorFecha 
+};
