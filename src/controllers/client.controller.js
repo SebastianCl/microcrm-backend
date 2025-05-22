@@ -32,7 +32,7 @@ const createClient = async (req, res, next) => {
 const toggleStatus = async (req, res, next) => {
     try {
         const { id } = req.params;
-        await clientService.toggleStatus(id);
+        await clientService.updateStatus(id);
         res.status(200).json({message: 'el estado del cliente ha sido actualizado correctamente'});
     } catch (err) {
         next(err);
