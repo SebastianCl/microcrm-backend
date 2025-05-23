@@ -90,7 +90,14 @@ const errors = {
   INVENTARIOS_NOT_FOUND: () => new ApiError(404, 'Movimientos de inventario no encontrados'),
   INVENTARIO_NOT_FOUND: () => new ApiError(404, 'Movimiento de inventario no encontrados'),
   INVENTARIO_CREATION_FAILED: () => new ApiError(500, 'Error al crear el movimiento de inventario'),
-  STOCK_INSUFICIENTE: () => new ApiError(400, 'Stock insuficiente para esta salida')
+  STOCK_INSUFICIENTE: () => new ApiError(400, 'Stock insuficiente para esta salida'),
+
+  // Errores para devoluciones (returns)
+  RETURNS_NOT_FOUND: () => new ApiError(404, 'Returns not found'),
+  RETURN_NOT_FOUND: () => new ApiError(404, 'Return not found'),
+  RETURN_ALREADY_EXISTS: () => new ApiError(409, 'The return already exists'),
+  RETURN_CREATION_FAILED: () => new ApiError(500, 'Error creating the return'),
+  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return'),
 };
 
 module.exports = errors;
