@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "1c5eb65d-29ba-41bb-9de0-e9dff5a998ef",
+		"_postman_id": "248c6fe1-5042-4cd6-804b-e55b248ae581",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21119789"
+		"_exporter_id": "43623464",
+		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-248c6fe1-5042-4cd6-804b-e55b248ae581?action=share&source=collection_link&creator=43623464"
 	},
 	"item": [
 		{
@@ -1673,7 +1674,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc4MDg0OTYsImV4cCI6MTc0NzgxMjA5Nn0.BbBwrDwIVvGGGI11zQyy9KkLSlU7P-L73kLhxMZ3Ptc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgwMjQ5NDcsImV4cCI6MTc0ODAyODU0N30.LDpimrbcdLw0a_C_QAniF4puUwOFeAV6BFYN3CnRXVw",
 									"type": "string"
 								}
 							]
@@ -1682,7 +1683,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_cliente\": 2,\r\n    \"id_usuario\": 3,\r\n    \"fecha\": \"2025-05-21\",\r\n    \"total\": \"30000\",\r\n    \"productos\": [\r\n    {\r\n      \"id_producto\": 1,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n    \"id_cliente\": 2,\r\n    \"id_usuario\": 3,\r\n    \"fecha\": \"2025-05-21\",\r\n    \"total\": \"30000\",\r\n    \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1807,7 +1808,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NDc5NTksImV4cCI6MTc0Nzk1MTU1OX0.nW9G-GzJTq5HmGmjXbSI8boVgjMdjuApTAWAXnTkj4A",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgwMjQ2OTYsImV4cCI6MTc0ODAyODI5Nn0.mfmxb0afV_giN36SltGOy4EnSZ-7jarrnfx9tpxQOQU",
 									"type": "string"
 								}
 							]
@@ -1837,7 +1838,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NjkyMzIsImV4cCI6MTc0Nzk3MjgzMn0.-DCq8NBw4UtSQfrvJZOOsqYQAPqAXmp_PgOb0mQS_bs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgwMjQ2OTYsImV4cCI6MTc0ODAyODI5Nn0.mfmxb0afV_giN36SltGOy4EnSZ-7jarrnfx9tpxQOQU",
 									"type": "string"
 								}
 							]
@@ -1868,7 +1869,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NzQ4NjYsImV4cCI6MTc0Nzk3ODQ2Nn0.4ECUOQVLwcoIJwqUqDy4Ur60G3x6OJFglA4F5YcCyQI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgwMjQ2OTYsImV4cCI6MTc0ODAyODI5Nn0.mfmxb0afV_giN36SltGOy4EnSZ-7jarrnfx9tpxQOQU",
 									"type": "string"
 								}
 							]
@@ -1877,7 +1878,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_producto\": 2,\r\n  \"cantidad\": 3,\r\n  \"tipo_movimiento\": \"salida\",\r\n  \"comentario\": \"Pedido cliente\"\r\n}",
+							"raw": "{\r\n  \"id_producto\": 3,\r\n  \"cantidad\": 90,\r\n  \"tipo_movimiento\": \"entrada\",\r\n  \"comentario\": \"Pedido cliente\",\r\n  \"fecha\": \"2025-05-23\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1902,6 +1903,116 @@
 			]
 		},
 		{
+			"name": "devoluciones",
+			"item": [
+				{
+					"name": "getAllReturns",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM5MzgsImV4cCI6MTc0NzcxNzUzOH0.vu7n0dgPldqEcgX2hdn-wIGoms7FXxP4V9v3UBvs93U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/returns",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"returns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReturnById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM5MzgsImV4cCI6MTc0NzcxNzUzOH0.vu7n0dgPldqEcgX2hdn-wIGoms7FXxP4V9v3UBvs93U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/returns/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"returns",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createReturn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_venta\": 1,\r\n  \"id_producto\": 1,\r\n  \"cantidad\": 2,\r\n  \"motivo\": \"no me gusto\",\r\n  \"fecha\": \"2025-05-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/returns/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"returns",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "login",
 			"request": {
 				"auth": {
@@ -1918,7 +2029,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
+					"raw": "{ \"username\": \"oweenAdmin\", \"password\": \"123\" }",
 					"options": {
 						"raw": {
 							"language": "json"
