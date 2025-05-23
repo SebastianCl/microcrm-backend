@@ -84,7 +84,13 @@ const errors = {
 
   // Errores para detalles de venta
   DETALLES_VENTAS_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
-  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados')
+  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados'),
+
+    // Errores para inventario
+  INVENTARIOS_NOT_FOUND: () => new ApiError(404, 'Movimientos de inventario no encontrados'),
+  INVENTARIO_NOT_FOUND: () => new ApiError(404, 'Movimiento de inventario no encontrados'),
+  INVENTARIO_CREATION_FAILED: () => new ApiError(500, 'Error al crear el movimiento de inventario'),
+  STOCK_INSUFICIENTE: () => new ApiError(400, 'Stock insuficiente para esta salida')
 };
 
 module.exports = errors;
