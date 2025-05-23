@@ -58,7 +58,6 @@ const errors = {
    // Errores para combos_Producto
   COMBO_PRODUCTS_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrados'),
   COMBO_PRODUCT_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrado'),
-  COMBO_ALREADY_EXISTS: () => new ApiError(409, 'El combo ya existe'),
   COMBO_PRODUCT_CREATION_FAILED: () => new ApiError(500, 'Error al crear el combo'),
   COMBO_PRODUCT_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el combo'),
 
@@ -85,7 +84,15 @@ const errors = {
 
   // Errores para detalles de venta
   DETALLES_VENTAS_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
-  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados')
+  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados'),
+
+  // Errores para devoluciones
+  RETURNS_NOT_FOUND: () => new ApiError(404, 'Devoluciones no encontradas'),
+  RETURN_NOT_FOUND: () => new ApiError(404, 'Devolución no encontrada'),
+  RETURN_CREATION_FAILED: () => new ApiError(500, 'Error al crear la devolución'),
+  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar la devolución'),
+  RETURN_DETAILS_NOT_FOUND: () => new ApiError(404, 'Detalles de devolución no encontrados'),
+  RETURN_DETAILS_CREATION_FAILED: () => new ApiError(500, 'Error al crear los detalles de la devolución')
 };
 
 module.exports = errors;
