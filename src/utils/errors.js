@@ -58,7 +58,6 @@ const errors = {
    // Errores para combos_Producto
   COMBO_PRODUCTS_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrados'),
   COMBO_PRODUCT_NOT_FOUND: () => new ApiError(404, 'Combo_producto no encontrado'),
-  COMBO_ALREADY_EXISTS: () => new ApiError(409, 'El combo ya existe'),
   COMBO_PRODUCT_CREATION_FAILED: () => new ApiError(500, 'Error al crear el combo'),
   COMBO_PRODUCT_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el combo'),
 
@@ -85,7 +84,20 @@ const errors = {
 
   // Errores para detalles de venta
   DETALLES_VENTAS_CREATION_FAILED: () => new ApiError(500, 'Error al crear la venta'),
-  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados')
+  DETALLES_VETA_NOT_FOUND: () => new ApiError(404, 'detalles de venta no encontrados'),
+
+    // Errores para inventario
+  INVENTARIOS_NOT_FOUND: () => new ApiError(404, 'Movimientos de inventario no encontrados'),
+  INVENTARIO_NOT_FOUND: () => new ApiError(404, 'Movimiento de inventario no encontrados'),
+  INVENTARIO_CREATION_FAILED: () => new ApiError(500, 'Error al crear el movimiento de inventario'),
+  STOCK_INSUFICIENTE: () => new ApiError(400, 'Stock insuficiente para esta salida'),
+
+  // Errores para devoluciones (returns)
+  RETURNS_NOT_FOUND: () => new ApiError(404, 'Returns not found'),
+  RETURN_NOT_FOUND: () => new ApiError(404, 'Return not found'),
+  RETURN_ALREADY_EXISTS: () => new ApiError(409, 'The return already exists'),
+  RETURN_CREATION_FAILED: () => new ApiError(500, 'Error creating the return'),
+  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return'),
 };
 
 module.exports = errors;
