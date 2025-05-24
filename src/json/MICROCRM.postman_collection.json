@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5bedfbda-3e77-4572-9286-1be0e4802b6c",
+		"_postman_id": "11c54a8a-8bee-4b7c-87e1-fefcf5ce3f99",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "35171266"
@@ -120,7 +120,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM5MzgsImV4cCI6MTc0NzcxNzUzOH0.vu7n0dgPldqEcgX2hdn-wIGoms7FXxP4V9v3UBvs93U"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NTI3MzQsImV4cCI6MTc0Nzk1NjMzNH0.NP1ZOYYNKc5wT-2YNhG-iza7v_XjqF0TF4MKNW5qqQw"
 							}
 						},
 						"method": "GET",
@@ -135,12 +135,12 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM5MzgsImV4cCI6MTc0NzcxNzUzOH0.vu7n0dgPldqEcgX2hdn-wIGoms7FXxP4V9v3UBvs93U"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NTI3MzQsImV4cCI6MTc0Nzk1NjMzNH0.NP1ZOYYNKc5wT-2YNhG-iza7v_XjqF0TF4MKNW5qqQw"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/products/1"
+						"url": "http://localhost:3000/api/products/5"
 					},
 					"response": []
 				},
@@ -165,14 +165,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcyNjAxMTIsImV4cCI6MTc0NzI2MzcxMn0.h-1C1rcs9m90fC6ujqdLH4DoSwVSuPAZpFr_6kaVFuk"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NTI3MzQsImV4cCI6MTc0Nzk1NjMzNH0.NP1ZOYYNKc5wT-2YNhG-iza7v_XjqF0TF4MKNW5qqQw"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"nombre\": \"Ensalada de frutas\",\r\n    \"descripcion\": \"Frutas mixtas con miel y ajo\",\r\n    \"precio\": \"12000.00\",\r\n    \"stock\": null,\r\n    \"maneja_inventario\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -198,21 +198,21 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM5MzgsImV4cCI6MTc0NzcxNzUzOH0.vu7n0dgPldqEcgX2hdn-wIGoms7FXxP4V9v3UBvs93U"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NTI3MzQsImV4cCI6MTc0Nzk1NjMzNH0.NP1ZOYYNKc5wT-2YNhG-iza7v_XjqF0TF4MKNW5qqQw"
 							}
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nombre\": \"Ensalada de frutas\",\r\n        \"descripcion\": \"Frutas mixtas con miel y ajo\",\r\n        \"precio\": \"12000.00\",\r\n        \"stock\": null,\r\n        \"estado\": true\r\n}",
+							"raw": "{\r\n        \"nombre\": \"Ensalada de frutas\",\r\n        \"descripcion\": \"Frutas mixtas\",\r\n        \"precio\": \"15000.00\",\r\n        \"stock\": null,\r\n        \"estado\": true,\r\n        \"maneja_inventario\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/products/1"
+						"url": "http://localhost:3000/api/products/5"
 					},
 					"response": []
 				}
@@ -1145,6 +1145,26 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:3000/api/ventas/detalles/7"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Factura",
+			"item": [
+				{
+					"name": "CrearFacturaPdf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgxMjU4NzYsImV4cCI6MTc0ODEyOTQ3Nn0.Vs1bnF7q7FJQwyuZQ810uLWWKUTx8iYcwzX9sSmdmVk"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:3000/api/factura/6/generar"
 					},
 					"response": []
 				}
