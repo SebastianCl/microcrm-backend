@@ -56,7 +56,6 @@ const generarFacturaBase64 = async (id_venta) => {
 
   y += 25;
   doc.fillColor('black').font('Helvetica').fontSize(9);
-  console.log(detalle);
   detalle.forEach(item => {
     const nombre = item.tipo === 'producto' ? item.producto : `+ ${item.adicion}`;
     doc.text(nombre, 55, y);
