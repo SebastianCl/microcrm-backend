@@ -8,7 +8,7 @@ const generarFacturaBase64 = async (id_venta) => {
   if (!existe) await facturaRepo.crearFactura(id_venta);
 
   const factura = await facturaRepo.getFactura(id_venta);
-  const detalle = await facturaRepo.getDetalleVenta(id_venta);
+  const detalle = await facturaRepo.getDetalleVentaEnriquecido(id_venta);
 
   if (!detalle || detalle.length === 0) throw new ApiError(404, 'No hay detalle para esta venta');
 
@@ -56,13 +56,13 @@ const generarFacturaBase64 = async (id_venta) => {
 
   y += 25;
   doc.fillColor('black').font('Helvetica').fontSize(9);
-
+  console.log(detalle);
   detalle.forEach(item => {
     const nombre = item.tipo === 'producto' ? item.producto : `+ ${item.adicion}`;
     doc.text(nombre, 55, y);
     doc.text(item.cantidad?.toString() || '0', 260, y);
-    doc.text(`$${item.precio_unitario}`, 350, y);
-    doc.text(`$${item.total_linea}`, 430, y);
+    doc.text(`${formatCurrency(item.precio_unitario)}`, 350, y);
+    doc.text(`${formatCurrency(item.total_linea)}`, 430, y);
     y += 15;
   });
 
@@ -71,11 +71,11 @@ const generarFacturaBase64 = async (id_venta) => {
   const iva_valor = (total_venta * iva).toFixed(2);
   const total_final = total_venta.toFixed(2);
 
-  y += 20;
-  doc.font('Helvetica-Bold').fontSize(10)
-    .text('IVA', 55, y)
-    .text('21%', 100, y)
-    .text(`$${iva_valor}`, 200, y);
+  // y += 20;
+  // doc.font('Helvetica-Bold').fontSize(10)
+  //   .text('IVA', 55, y)
+  //   .text('N/A%', 100, y)
+  //   .text(`$${iva_valor}`, 200, y);
 
   y += 25;
   doc.font('Helvetica-Bold').fontSize(14)
@@ -104,4 +104,8 @@ const generarFacturaBase64 = async (id_venta) => {
 
 };
 
+const formatCurrency = (value) => {
+  const num = parseFloat(value);
+  return Number.isInteger(num) ? `${num}` : `${num.toFixed(2)}`;
+};
 module.exports = {generarFacturaBase64 };
