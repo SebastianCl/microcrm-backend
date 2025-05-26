@@ -37,6 +37,7 @@ app.use('/api/expenses', require('./routes/expenses.routes'));
 app.use('/api/ventas', require('./routes/ventas.routes.js'));
 app.use('/api/inventarios', require('./routes/inventario.routes.js'));
 app.use('/api/returns', require('./routes/returns.routes'));
+app.use('/api/configuration', require('./routes/configuration.routes'));
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
 
