@@ -1,5 +1,6 @@
 const db = require('../config/db');
 const errors = require('../utils/errors');
+const ApiError = require('../utils/apiError');
 
 const getAllExpenses = async() =>{
     const { rows } = await db.query('SELECT id_gasto, id_cliente, descripcion, monto, fecha, tipo FROM gastos');
@@ -31,4 +32,30 @@ const createExpense = async( id_cliente, descripcion, monto, fecha, tipo ) => {
   }
 };
 
-module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense  };
+const updateExpense = async(id, data) => {
+  try {  
+    // verificamos que si exista el cliente (getFindById lanza error si no existe)
+    const existingExpense =  await getExpenseById(id);
+
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+
+    // construccion del set dinamico
+    const setClause = keys
+      .map((key, index) => `${key} = $${index + 1}`)
+      .join(', ');
+
+    // Agregar el ID como último parámetro
+    values.push(existingExpense.id_gasto);
+
+    // Crear y ejecutar la consulta final
+    const query = `UPDATE gastos SET ${setClause} WHERE id_gasto = $${values.length}`;
+    await db.query(query, values);    
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw errors.EXPENSE_UPDATE_FAILED();
+  }
+
+};
+
+module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense, updateExpense  };

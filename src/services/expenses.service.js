@@ -16,4 +16,7 @@ const createExpense = async(id_cliente, descripcion, monto, fecha, tipo) => {
   return await expensesRepo.createExpense(id_cliente, descripcion, monto, fecha, tipo);
 };
 
-module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense  };
+const updateExpense = async(id, data) =>{
+  return await expensesRepo.updateExpense(id, data);
+};
+module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense, updateExpense  };

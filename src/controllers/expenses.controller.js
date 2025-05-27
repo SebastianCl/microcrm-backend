@@ -39,4 +39,15 @@ const createExpense = async (req, res, next) => {
     }
 };
 
-module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense };
+const updateExpense = async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+        await expensesService.updateExpense(id, data);
+        res.status(200).json({message: 'El gasto se actualizo correctamente'});
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense, updateExpense };
