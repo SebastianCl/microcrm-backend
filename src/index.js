@@ -39,6 +39,7 @@ app.use('/api/factura', require('./routes/factura.routes.js'));
 
 app.use('/api/inventarios', require('./routes/inventario.routes.js'));
 app.use('/api/returns', require('./routes/returns.routes'));
+app.use('/api/configuration', require('./routes/configuration.routes'));
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
 
