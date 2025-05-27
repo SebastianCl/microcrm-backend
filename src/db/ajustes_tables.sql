@@ -19,3 +19,30 @@ ADD COLUMN id_pedido INT;
 ALTER TABLE ventas
 ADD CONSTRAINT fk_ventas_pedidos
 FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido);
+
+-- 1. Eliminar columna actual
+ALTER TABLE pedidos DROP COLUMN estado;
+-- 2. Crear tabla para estados.
+CREATE TABLE estado (
+    id_estado SERIAL PRIMARY KEY,
+    nombre_estado VARCHAR(50) NOT NULL UNIQUE
+);
+-- 3. Agregar estados
+INSERT INTO estado (nombre_estado) VALUES
+('Pendiente'),
+('Preparando'),
+('Entregado'),
+('Cancelado'),
+('Finalizado');
+-- 4. Crear columna en pedidos.
+ALTER TABLE pedidos
+ADD COLUMN id_estado INT;
+-- 5. RElacionar columna con nueva tabla
+ALTER TABLE pedidos
+ADD CONSTRAINT fk_pedidos_estado
+FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
+-- 6 Actualizar los registros existentes a Pendiente. 
+UPDATE pedidos SET id_estado = (
+    SELECT id_estado FROM estado WHERE nombre_estado = 'Pendiente'
+)
+WHERE id_estado IS NULL;
