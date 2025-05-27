@@ -33,7 +33,7 @@ BEGIN
                 WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar'
                 ELSE 'N/A'
             END),
-        pe.estado::character varying,
+        es.nombre_estado,
         c.nombre AS nombre_cliente,
         u.nombre_usuario,
         c.correo AS correo_cliente
@@ -46,6 +46,7 @@ BEGIN
     LEFT JOIN detalle_pedido_adiciones dpa ON dpa.id_detalle_pedido = dp.id_detalle_pedido
     LEFT JOIN adiciones_producto ap ON ap.id_adicion = dpa.id_adicion
     LEFT JOIN mesas m ON m.id_mesa = pe.id_mesa
+    LEFT JOIN estado es ON es.id_estado = pe.id_estado
     WHERE 
         dp.id_pedido = p_id_pedido;
 END;
