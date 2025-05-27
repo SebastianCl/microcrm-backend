@@ -14,13 +14,13 @@ const getDetallesVentaById = async(id) => {
 };
 
 const createVenta = async (data) => {
-    const {id_cliente, id_usuario, fecha, total, productos} = data;
+    const {id_cliente, id_usuario, id_pedido, fecha, total, productos} = data;
     
     if(!productos || productos.length === 0){
         throw new ApiError(400, 'Debe incluir al menos un producto en la venta');
     }
     
-    const id_venta = await ventasRepo.createVenta(id_cliente, id_usuario, fecha, total);
+    const id_venta = await ventasRepo.createVenta(id_cliente, id_usuario, id_pedido, fecha, total);
     for(const producto of productos){
         await ventasRepo.insertarDetalleVenta(id_venta, producto);
     }

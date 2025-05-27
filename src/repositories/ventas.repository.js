@@ -20,9 +20,9 @@ const getDetallesVentaById = async(id) => {
     return rows;
 };
 
-const createVenta = async (id_cliente, id_usuario, fecha, total) => {
+const createVenta = async (id_cliente, id_usuario, id_pedido, fecha, total) => {
     try {
-        const { rows } = await db.query('INSERT INTO ventas (id_cliente, id_usuario, fecha, total) VALUES ($1, $2, $3, $4) RETURNING id_venta', [id_cliente, id_usuario, fecha,  total]);
+        const { rows } = await db.query('INSERT INTO ventas (id_cliente, id_usuario, fecha, total,id_pedido) VALUES ($1, $2, $3, $4, $5) RETURNING id_venta', [id_cliente, id_usuario, fecha, total, id_pedido]);
         return rows[0].id_venta;
     } catch (err) {
         if (err instanceof ApiError) throw err;

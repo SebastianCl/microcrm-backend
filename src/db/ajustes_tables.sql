@@ -9,3 +9,13 @@ FOREIGN KEY (id_adicion) REFERENCES adiciones_producto(id_adicion);
 -- Eliminar no nut de la columna
 ALTER TABLE detalle_venta
 ALTER COLUMN id_producto DROP NOT NULL;
+
+-- Ajutes 26/05
+-- 1. Agregar columna id_pedido a ventas
+ALTER TABLE ventas
+ADD COLUMN id_pedido INT;
+
+-- 2. Crear la relación foránea hacia pedidos
+ALTER TABLE ventas
+ADD CONSTRAINT fk_ventas_pedidos
+FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido);
