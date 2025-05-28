@@ -46,3 +46,23 @@ UPDATE pedidos SET id_estado = (
     SELECT id_estado FROM estado WHERE nombre_estado = 'Pendiente'
 )
 WHERE id_estado IS NULL;
+
+-- 27/05
+CREATE TABLE categorias (
+    id_categoria SERIAL PRIMARY KEY,
+    nombre_categoria VARCHAR(100) NOT NULL UNIQUE
+);
+
+ALTER TABLE productos
+ADD COLUMN id_categoria INT;
+
+ALTER TABLE productos
+ADD CONSTRAINT fk_productos_categoria
+FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria);
+
+INSERT INTO categorias (nombre_categoria) VALUES
+('Copas'),
+('Bebidas'),
+('Paletas'),
+('Ensaladas'),
+('Malteadas');

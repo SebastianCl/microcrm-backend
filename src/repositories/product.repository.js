@@ -3,7 +3,20 @@ const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
 
 const getAllProducts = async () => {
-  const { rows } = await db.query('SELECT id_producto, nombre, descripcion, precio, stock, estado FROM productos');
+  const { rows } = await db.query(`
+    SELECT 
+      p.id_producto,
+      p.nombre,
+      p.descripcion,
+      p.precio,
+      p.stock,
+      p.estado,
+      c.id_categoria,
+      c.nombre_categoria AS categoria
+    FROM productos p
+    JOIN categorias c ON c.id_categoria = p.id_categoria
+  `);
+
   if (rows.length === 0) throw errors.PRODUCTS_NOT_FOUND();
   return rows;
 };
