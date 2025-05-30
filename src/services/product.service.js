@@ -12,8 +12,8 @@ const getProductAdditions = async(id) =>{
   return await productRepo.getProductAdditions(id);
 }; 
 
-const createProduct = async( nombre, descripcion, precio, stock ) => {
-  return await productRepo.createProduct( nombre, descripcion, precio, stock );
+const createProduct = async( nombre, descripcion, precio, stock,maneja_inventario, id_categoria ) => {
+  return await productRepo.createProduct( nombre, descripcion, precio, stock, maneja_inventario, id_categoria );
 };
 
 const updateStatus = async(id) =>{

@@ -31,12 +31,14 @@ const getProductAdditions = async(req, res, next) =>{
 
 const createProduct = async (req, res, next) => {
   try {
-    const { nombre, descripcion, precio, stock } = req.body;
+    const { nombre, descripcion, precio, stock, maneja_inventario, id_categoria } = req.body;
     const result = await productService.createProduct(
       nombre,
       descripcion,
       precio,
-      stock
+      stock,
+      maneja_inventario,
+      id_categoria
     );
     res
       .status(201)
@@ -61,7 +63,7 @@ const updateStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
     await productService.updateStatus(id);
-    res.status(200).json({ message: 'Producto eliminado correctamente' });
+    res.status(200).json({ message: 'Producto actualizado correctamente' });
   } catch (err) {
     next(err);
   }
