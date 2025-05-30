@@ -201,7 +201,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc5NTI3MzQsImV4cCI6MTc0Nzk1NjMzNH0.NP1ZOYYNKc5wT-2YNhG-iza7v_XjqF0TF4MKNW5qqQw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzNTMyMTUsImV4cCI6MTc0ODM1NjgxNX0.1OG5XO6zHU82KKvl8MKCWWIgBO4SKHg8nD087JRpVVE",
 									"type": "string"
 								}
 							]
@@ -1115,7 +1115,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzMTYzNjEsImV4cCI6MTc0ODMxOTk2MX0.5d8qlSHTmm7kB2wkIjLavnVnC2NpTdmuO7zQ3VtsYyY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1NzU1NTksImV4cCI6MTc0ODU3OTE1OX0.WbrC0XjrkZa4ZmL3vSarGEwvPbljMv938CJcBHbS7Jc",
 									"type": "string"
 								}
 							]
@@ -1124,7 +1124,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": null, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"para_llevar\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"id_estado\": 1 //1=Pendiente\r\n}\r\n",
+							"raw": "{\r\n  \"id_cliente\": 1,\r\n  \"id_usuario\": 2,\r\n  \"id_mesa\": null, //Si no esta asignado a mesa enviar campo vacio.\r\n  \"tipo_pedido\": \"para_llevar\", //en_mesa, para_llevar.\r\n  \"productos\": [\r\n    {\r\n      \"id_producto\": 3,\r\n      \"cantidad\": 4,\r\n      \"precio_unitario\": 10000,\r\n      \"adiciones\": [\r\n        { \"id_adicion\": 1, \"cantidad\": 1 },\r\n        { \"id_adicion\": 2, \"cantidad\": 2 }\r\n      ]\r\n    },\r\n    {\r\n      \"id_producto\": 2,\r\n      \"cantidad\": 1,\r\n      \"precio_unitario\": 12000,\r\n      \"adiciones\": []\r\n    }\r\n  ],\r\n  \"id_estado\": 6 //6=Pendiente\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1199,7 +1199,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzMTYzNjEsImV4cCI6MTc0ODMxOTk2MX0.5d8qlSHTmm7kB2wkIjLavnVnC2NpTdmuO7zQ3VtsYyY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1NzU1NTksImV4cCI6MTc0ODU3OTE1OX0.WbrC0XjrkZa4ZmL3vSarGEwvPbljMv938CJcBHbS7Jc",
 									"type": "string"
 								}
 							]
@@ -1243,7 +1243,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzMTYzNjEsImV4cCI6MTc0ODMxOTk2MX0.5d8qlSHTmm7kB2wkIjLavnVnC2NpTdmuO7zQ3VtsYyY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1NzU1NTksImV4cCI6MTc0ODU3OTE1OX0.WbrC0XjrkZa4ZmL3vSarGEwvPbljMv938CJcBHbS7Jc",
 									"type": "string"
 								}
 							]
@@ -1286,7 +1286,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzMTYzNjEsImV4cCI6MTc0ODMxOTk2MX0.5d8qlSHTmm7kB2wkIjLavnVnC2NpTdmuO7zQ3VtsYyY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1NzU1NTksImV4cCI6MTc0ODU3OTE1OX0.WbrC0XjrkZa4ZmL3vSarGEwvPbljMv938CJcBHbS7Jc",
 									"type": "string"
 								}
 							]
@@ -1332,7 +1332,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgyMTMwOTYsImV4cCI6MTc0ODIxNjY5Nn0.3lkDZvImBBoA_I9l-Bvc3LLRYbA8pnkcCHxrz7GqzC4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1NzU1NTksImV4cCI6MTc0ODU3OTE1OX0.WbrC0XjrkZa4ZmL3vSarGEwvPbljMv938CJcBHbS7Jc",
 									"type": "string"
 								}
 							]
@@ -1341,7 +1341,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"estado\": \"Procesando\"\r\n}",
+							"raw": "{\r\n  \"id_estado\": 7\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1732,7 +1732,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc4ODM3MjQsImV4cCI6MTc0Nzg4NzMyNH0.hQSWjdCj3_0A0ngajb8DyZLoxBRetHr1qbxwR173DQE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzNTMyMTUsImV4cCI6MTc0ODM1NjgxNX0.1OG5XO6zHU82KKvl8MKCWWIgBO4SKHg8nD087JRpVVE",
 									"type": "string"
 								}
 							]
@@ -1981,126 +1981,217 @@
 			]
 		},
 		{
-			"name": "login",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM4ODMsImV4cCI6MTc0NzcxNzQ4M30.4sVWgYXHCUS6pX1q_779uTXA5rITAcCnesPuj2SGikE",
-							"type": "string"
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM4ODMsImV4cCI6MTc0NzcxNzQ4M30.4sVWgYXHCUS6pX1q_779uTXA5rITAcCnesPuj2SGikE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"username\": \"owen\", \"password\": \"owen123\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"username\": \"oweenAdmin\", \"password\": \"123\" }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "sendEmail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzNTAwODcsImV4cCI6MTc0ODM1MzY4N30.T99dU3sIjlwIs16z-ZDlLNPDRvhxCAJUR6CPxXEhB1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"oweenunda.dev@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/recover",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"recover"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
+				{
+					"name": "resetPassoword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDgzNTAwODcsImV4cCI6MTc0ODM1MzY4N30.T99dU3sIjlwIs16z-ZDlLNPDRvhxCAJUR6CPxXEhB1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\" : \"pepe123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/reset/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im93ZWVudW5kYS5kZXZAZ21haWwuY29tIiwiaWF0IjoxNzQ4MzU0MTM3LCJleHAiOjE3NDgzNTUwMzd9.8OfiXh3D3wbr5T7IfNsYTn6KI2xMUS6VEayDwXiCCVE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"reset",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im93ZWVudW5kYS5kZXZAZ21haWwuY29tIiwiaWF0IjoxNzQ4MzU0MTM3LCJleHAiOjE3NDgzNTUwMzd9.8OfiXh3D3wbr5T7IfNsYTn6KI2xMUS6VEayDwXiCCVE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcxNDExNDQsImV4cCI6MTc0NzE0NDc0NH0.bYTtC8jzb5ltzbQfsZwYCCKTYwqTjfXXjsgHuxdFZCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "usuarios",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDcxNjk2NzIsImV4cCI6MTc0NzE3MzI3Mn0.VJMe7EpucIBoJJlpgemRMQa08eRB8-CyG28-9fKiTXw",
-							"type": "string"
+			"name": "users",
+			"item": [
+				{
+					"name": "usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDcxNjk2NzIsImV4cCI6MTc0NzE3MzI3Mn0.VJMe7EpucIBoJJlpgemRMQa08eRB8-CyG28-9fKiTXw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
 						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcxNDExNDQsImV4cCI6MTc0NzE0NDc0NH0.bYTtC8jzb5ltzbQfsZwYCCKTYwqTjfXXjsgHuxdFZCA",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

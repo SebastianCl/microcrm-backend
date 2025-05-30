@@ -53,11 +53,11 @@ const obtenerDetallePedido = async (id_pedido) => {
   }
 };
 
-const actualizarEstadoPedido = async (id_pedido, estado) => {
+const actualizarEstadoPedido = async (id_pedido, id_estado) => {
   try {
     await db.query(
-      'UPDATE pedidos SET estado = $1::estado_pedido WHERE id_pedido = $2',
-      [estado, id_pedido]
+      'UPDATE pedidos SET id_estado = $1 WHERE id_pedido = $2',
+      [id_estado, id_pedido]
     );
   } catch (error) {
     throw errors.PEDIDO_STATUS_UPDATE_FAILED();

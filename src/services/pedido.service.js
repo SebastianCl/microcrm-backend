@@ -43,12 +43,8 @@ const obtenerDetallePedido = async (id_pedido) => {
   return await pedidoRepo.obtenerDetallePedido(id_pedido);
 };
 
-const actualizarEstadoPedido = async (id_pedido, estado) => {
-  const estadosValidos = ['pendiente', 'procesado', 'cancelado'];
-  if (!estadosValidos.includes(estado)) {
-    throw new ApiError(400, 'Estado inválido');
-  }
-  await pedidoRepo.actualizarEstadoPedido(id_pedido, estado);
+const actualizarEstadoPedido = async (id_pedido, id_estado) => {
+  await pedidoRepo.actualizarEstadoPedido(id_pedido, id_estado);
 };
 
 const getPedidosDelDia = async (estado) => {
