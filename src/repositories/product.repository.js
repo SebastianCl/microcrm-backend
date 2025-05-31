@@ -48,17 +48,17 @@ const getProductAdditions = async(id) =>{
   return rows[0];
 };
 
-const createProduct = async (name, description, price, stock) => {
+const createProduct = async (name, description, price, stock, maneja_inventario, id_categoria) => {
   try {
     const existing = await db.query(
-      'SELECT id_producto FROM productos WHERE nombre = $1 AND descripcion = $2 AND precio = $3 AND stock = $4', 
-      [name, description, price, stock]
+      'SELECT id_producto FROM productos WHERE nombre = $1 AND descripcion = $2 AND precio = $3 AND stock = $4 AND maneja_inventario = $5 AND id_producto = $6',
+      [name, description, price, stock, maneja_inventario, id_categoria]
     );
 
     if (existing.rows.length > 0) throw errors.PRODUCT_ALREADY_EXISTS();
     const { rows } = await db.query(
-      'INSERT INTO productos(nombre, descripcion, precio, stock) VALUES($1, $2, $3, $4) RETURNING id_producto',
-      [name, description, price, stock]
+      'INSERT INTO productos(nombre, descripcion, precio, stock, maneja_inventario, id_categoria) VALUES($1, $2, $3, $4, $5, $6) RETURNING id_producto',
+      [name, description, price, stock, maneja_inventario, id_categoria]
     );
     return rows[0].id_producto;
   } catch (err) {
