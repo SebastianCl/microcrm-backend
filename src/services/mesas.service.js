@@ -1,7 +1,7 @@
 const mesasRepo = require('../repositories/mesas.repository');
 
-const getAllMesas = async() =>{
-  return await mesasRepo.getAllMesas();
+const getAllMesas = async (activa) => {
+  return await mesasRepo.getAllMesas(activa);
 };
 
 const getMesaById = async(id) => {

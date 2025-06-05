@@ -2,9 +2,17 @@ const db = require('../config/db');
 const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
 
-const getAllMesas = async() => {
-  const { rows } = await db.query('SELECT id_mesa, id_cliente, nombre_mesa, activa FROM mesas');
-  if(rows.length === 0) throw errors.MESAS_NOT_FOUND();
+const getAllMesas = async (activa) => {
+  let query = 'SELECT id_mesa, id_cliente, nombre_mesa, activa FROM mesas';
+  const values = [];
+
+  if (activa !== undefined) {
+    query += ' WHERE activa = $1';
+    values.push(activa);
+  }
+
+  const { rows } = await db.query(query, values);
+  if (rows.length === 0) throw errors.MESAS_NOT_FOUND();
   return rows;
 };
 

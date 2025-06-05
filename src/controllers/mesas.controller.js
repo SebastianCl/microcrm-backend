@@ -1,8 +1,13 @@
 const mesasService = require('../services/mesas.service');
 
-const getAllMesas = async(req, res, next) => {
+const getAllMesas = async (req, res, next) => {
   try {
-    const mesas = await mesasService.getAllMesas();
+    const { activa } = req.query;
+
+    // Convertimos "true"/"false" a booleano si se envía
+    const filtroActiva = activa !== undefined ? activa === 'true' : undefined;
+
+    const mesas = await mesasService.getAllMesas(filtroActiva);
     res.status(200).json(mesas);
   } catch (err) {
     next(err);
