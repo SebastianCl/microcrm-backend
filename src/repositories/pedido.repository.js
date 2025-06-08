@@ -59,6 +59,27 @@ const actualizarEstadoPedido = async (id_pedido, id_estado) => {
       'UPDATE pedidos SET id_estado = $1 WHERE id_pedido = $2',
       [id_estado, id_pedido]
     );
+    // 2. Si se finaliza el pedido, buscar la venta generada automáticamente
+    const ESTADO_FINALIZADO = 5;
+
+    if (parseInt(id_estado) === ESTADO_FINALIZADO) {
+
+      await new Promise(resolve => setTimeout(resolve, 300)); // 300 ms
+      
+      const { rows } = await db.query(
+        'SELECT id_venta FROM ventas WHERE id_pedido = $1 ORDER BY fecha DESC LIMIT 1',
+        [id_pedido]
+      );
+
+      if (rows.length === 0) {
+        throw new ApiError(500, 'El trigger no generó la venta para el pedido finalizado.');
+      }
+
+      return rows[0].id_venta;
+    }
+
+    // Si no es finalizado, retornar null o undefined
+    return null;
   } catch (error) {
     throw errors.PEDIDO_STATUS_UPDATE_FAILED();
   }

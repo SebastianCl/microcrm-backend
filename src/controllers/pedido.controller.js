@@ -33,8 +33,8 @@ const actualizarEstadoPedido = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { id_estado } = req.body;
-    await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado));
-    res.json({ success: true, message: 'Estado actualizado' });
+    const idVenta = await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado));
+    res.json({ success: true, message: 'Estado actualizado', id_venta: idVenta || null });
   } catch (error) {
     next(error);
   }

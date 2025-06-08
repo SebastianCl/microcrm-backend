@@ -44,7 +44,7 @@ const obtenerDetallePedido = async (id_pedido) => {
 };
 
 const actualizarEstadoPedido = async (id_pedido, id_estado) => {
-  await pedidoRepo.actualizarEstadoPedido(id_pedido, id_estado);
+  return await pedidoRepo.actualizarEstadoPedido(id_pedido, id_estado);
 };
 
 const getPedidosDelDia = async (estado) => {
