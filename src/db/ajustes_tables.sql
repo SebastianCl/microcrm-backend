@@ -66,3 +66,12 @@ INSERT INTO categorias (nombre_categoria) VALUES
 ('Paletas'),
 ('Ensaladas'),
 ('Malteadas');
+-- 11/05
+-- 1. Agregar la columna id_venta a pedidos
+ALTER TABLE pedidos
+ADD COLUMN id_venta INT;
+
+-- 2. Establecer la clave foránea hacia la tabla ventas
+ALTER TABLE pedidos
+ADD CONSTRAINT fk_pedidos_ventas
+FOREIGN KEY (id_venta) REFERENCES ventas(id_venta);

@@ -49,6 +49,10 @@ BEGIN
             WHERE id_venta = v_id_venta
         )
         WHERE id_venta = v_id_venta;
+        -- 5. Registrar el id_venta en el pedido
+        UPDATE pedidos
+        SET id_venta = v_id_venta
+        WHERE id_pedido = NEW.id_pedido;
     END IF;
 
     RETURN NEW;

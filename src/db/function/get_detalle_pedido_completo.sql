@@ -1,4 +1,3 @@
--- Funcion para Obtener el detalle del Pedido
 CREATE OR REPLACE FUNCTION public.get_detalle_pedido_completo(p_id_pedido integer)
 RETURNS TABLE(
     id_detalle_pedido integer, 
@@ -12,7 +11,8 @@ RETURNS TABLE(
     nombre_cliente character varying,
     nombre_usuario character varying,
     correo_cliente character varying,
-    total_pedido numeric
+    total_pedido numeric,
+    id_venta integer
 )
 LANGUAGE plpgsql
 AS $function$
@@ -56,13 +56,14 @@ BEGIN
         c.nombre AS nombre_cliente,
         u.nombre_usuario,
         c.correo AS correo_cliente,
-        t.total_pedido
+        t.total_pedido,
+        pe.id_venta
     FROM 
         detalle_pedido dp
     INNER JOIN productos p ON p.id_producto = dp.id_producto
     INNER JOIN pedidos pe ON pe.id_pedido = dp.id_pedido
     INNER JOIN usuarios u ON pe.id_usuario = u.id_usuario
-    INNER JOIN clientes c ON pe.id_cliente  = c.id_cliente
+    INNER JOIN clientes c ON pe.id_cliente = c.id_cliente
     LEFT JOIN detalle_pedido_adiciones dpa ON dpa.id_detalle_pedido = dp.id_detalle_pedido
     LEFT JOIN adiciones_producto ap ON ap.id_adicion = dpa.id_adicion
     LEFT JOIN mesas m ON m.id_mesa = pe.id_mesa
@@ -81,10 +82,9 @@ BEGIN
         c.nombre,
         u.nombre_usuario,
         c.correo,
-        t.total_pedido;
+        t.total_pedido,
+        pe.id_venta;
 END;
 $function$;
---Eliminar versio anterior
---DROP FUNCTION IF EXISTS public.get_detalle_pedido_completo(integer);
--- Como usarlo
--- SELECT * FROM get_detalle_pedido_completo(4);
+
+--DROP FUNCTION IF EXISTS public.get_detalle_pedido_completo(integer); Elimar funcion. 
