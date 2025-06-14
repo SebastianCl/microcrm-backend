@@ -7,7 +7,8 @@ RETURNS TABLE (
     estado character varying,
     nombre_mesa character varying,
     nombre_usuario character varying,
-    nombre_cliente character varying
+    nombre_cliente character varying,
+    id_venta INT
 )
 AS $$
 BEGIN
@@ -20,7 +21,8 @@ BEGIN
         COALESCE(m.nombre_mesa, 
             CASE WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar' ELSE 'N/A' END),
         u.nombre_usuario,
-        c.nombre AS nombre_cliente
+        c.nombre AS nombre_cliente,
+        pe.id_venta
     FROM pedidos pe
     LEFT JOIN mesas m ON pe.id_mesa = m.id_mesa
     INNER JOIN usuarios u ON pe.id_usuario = u.id_usuario
@@ -36,6 +38,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+--DROP FUNCTION IF EXISTS get_pedidos_del_dia(character varying);
 -- Para filtrar por estado
 -- SELECT * FROM get_pedidos_del_dia('Pendiente');
 -- sin filtro trae todos los pedidos creado del dia
