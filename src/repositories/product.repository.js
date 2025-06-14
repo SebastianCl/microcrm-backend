@@ -5,27 +5,32 @@ const errors = require('../utils/errors');
 const getAllProducts = async () => {
   const { rows } = await db.query(`
     SELECT
-      p.id_producto,
-      p.nombre,
-      p.descripcion,
-      p.precio,
-      p.stock,
-      p.maneja_inventario,
-      p.estado,
-      COALESCE(
-        (SELECT jsonb_agg(
-          jsonb_build_object(
-            'id_adicion', ap.id_adicion,
-            'nombre', ap.nombre,
-            'precio_extra', ap.precio_extra,
-            'estado', ap.estado
-          ) ORDER BY ap.id_adicion
-        )
-        FROM adiciones_producto ap
-        WHERE ap.id_producto = p.id_producto),
+    p.id_producto,
+    p.nombre,
+    p.descripcion,
+    p.precio,
+    p.stock,
+    p.maneja_inventario,
+    p.estado,
+    p.id_categoria,
+    c.nombre_categoria,
+    COALESCE(
+        (
+            SELECT jsonb_agg(
+                jsonb_build_object(
+                    'id_adicion', ap.id_adicion,
+                    'nombre', ap.nombre,
+                    'precio_extra', ap.precio_extra,
+                    'estado', ap.estado
+                ) ORDER BY ap.id_adicion
+            )
+            FROM adiciones_producto ap
+            WHERE ap.id_producto = p.id_producto
+        ),
         '[]'::jsonb
-      ) AS adiciones
-    FROM productos p
+    ) AS adiciones
+FROM productos p
+LEFT JOIN categorias c ON p.id_categoria = c.id_categoria;
   `);
 
   if (rows.length === 0) throw errors.PRODUCTS_NOT_FOUND();
