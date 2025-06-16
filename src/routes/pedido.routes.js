@@ -8,5 +8,6 @@ router.get('/dia', authenticateToken(['admin', 'empleado']), pedidoController.ge
 router.get('/:id/detalle', authenticateToken(['admin', 'empleado']), pedidoController.obtenerDetallePedido);
 router.patch('/:id/estado',  authenticateToken(['admin','empleado']), pedidoController.actualizarEstadoPedido);
 router.post('/:id/agregar', authenticateToken(['admin', 'empleado']), pedidoController.AddproductoPedido);
+router.put('/:id/ajustar', authenticateToken(['admin', 'empleado']), pedidoController.ajustarPedido);
 
 module.exports = router;

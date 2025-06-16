@@ -49,4 +49,21 @@ const getPedidosDelDia = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia };
+
+const ajustarPedido = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const {  agregados, modificados, eliminados } = req.body;
+
+    await pedidoService.ajustarPedido(id, agregados, modificados, eliminados);
+
+    res.json({
+      success: true,
+      message: 'Pedido ajustado correctamente'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { crearPedido, obtenerDetallePedido,actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia, ajustarPedido };

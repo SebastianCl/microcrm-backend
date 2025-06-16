@@ -1,5 +1,6 @@
 const pedidoRepo = require('../repositories/pedido.repository');
 const ApiError = require('../utils/apiError');
+const db = require('../config/db');
 
 const crearPedido = async (data) => {
   const { id_cliente, id_usuario, id_mesa, tipo_pedido,productos, id_estado } = data;
@@ -38,7 +39,6 @@ const AddproductoPedido = async (productos, id_pedido) => {
   return id_pedido;
 };
 
-
 const obtenerDetallePedido = async (id_pedido) => {
   return await pedidoRepo.obtenerDetallePedido(id_pedido);
 };
@@ -51,4 +51,39 @@ const getPedidosDelDia = async (estado) => {
   return await pedidoRepo.getPedidosDelDia(estado);
 };
 
-module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia };
+const ajustarPedido = async (id, agregados, modificados, eliminados) => {
+  const client = await db.connect();
+  
+  try {
+    if (!Array.isArray(agregados) || !Array.isArray(modificados) || !Array.isArray(eliminados)) {
+      throw new ApiError(400, 'Los campos agregados, modificados y eliminados deben ser arrays');
+    }
+
+    /* Inicia la transacción de la base de datos para que se realicen todas las operaciones en una sola transacción */
+    await client.query('BEGIN');
+
+    for (const idDetalle of eliminados) {
+      await pedidoRepo.eliminarDetalle(client, idDetalle, id);
+    }
+
+
+    for (const detalle of modificados) {
+      await pedidoRepo.modificarDetalle(client, detalle, id);
+    }
+
+
+    for (const detalle of agregados) {
+    await pedidoRepo.agregarDetalle(client, detalle, id);    
+    }
+    /* Se confirma la transacción si todas las operaciones se realizan correctamente */
+    await client.query('COMMIT');
+  } catch (error) {
+    /* Se revierte la transacción si ocurre un error en alguna de las operaciones */
+    await client.query('ROLLBACK');
+    throw new ApiError(500, 'Error al ajustar el pedido: ' + error.message);
+  } finally {
+    client.release();
+  }
+};
+
+module.exports = { crearPedido, obtenerDetallePedido, actualizarEstadoPedido,AddproductoPedido,getPedidosDelDia, ajustarPedido };
