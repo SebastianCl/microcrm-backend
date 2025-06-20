@@ -3,7 +3,9 @@ const ApiError = require('../utils/apiError');
 const db = require('../config/db');
 
 const crearPedido = async (data) => {
-  const { id_cliente, id_usuario, id_mesa, tipo_pedido,productos, id_estado } = data;
+  let { id_cliente, id_usuario, id_mesa, tipo_pedido,productos, id_estado } = data;
+
+  if(!id_cliente) id_cliente = 1;
   if (!productos || productos.length === 0) {
     throw new ApiError(400, 'Debe incluir al menos un producto en el pedido.');
   }

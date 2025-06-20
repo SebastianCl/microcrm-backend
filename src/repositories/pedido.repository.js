@@ -3,6 +3,7 @@ const errors = require('../utils/errors');
 const ApiError = require('../utils/apiError');
 
 const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_pedido = 'en_mesa', id_estado }) => {
+
   try {
     const { rows } = await db.query(
       `INSERT INTO pedidos (id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado)
