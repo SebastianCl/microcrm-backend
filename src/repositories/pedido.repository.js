@@ -2,14 +2,15 @@ const db = require('../config/db');
 const errors = require('../utils/errors');
 const ApiError = require('../utils/apiError');
 
-const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_pedido = 'en_mesa', id_estado }) => {
+const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_pedido = 'en_mesa', id_estado, medio_pago, Observacion }) => {
 
   try {
+       console.log(medio_pago,Observacion)
     const { rows } = await db.query(
-      `INSERT INTO pedidos (id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado)
-        VALUES ($1, $2, $3, $4, $5)
+      `INSERT INTO pedidos (id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, observacion )
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id_pedido`,
-      [id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado]
+      [id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, Observacion]
     );
     return rows[0].id_pedido;
   } catch (error) {
@@ -17,13 +18,13 @@ const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_ped
   }
 };
 
-const insertarDetallePedido = async (id_pedido, { id_producto, cantidad, precio_unitario }) => {
+const insertarDetallePedido = async (id_pedido, { id_producto, cantidad, precio_unitario, observacion }) => {
   try {
     const { rows } = await db.query(
-      `INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_unitario)
-      VALUES ($1, $2, $3, $4)
+      `INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_unitario,observacion)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING id_detalle_pedido`,
-      [id_pedido, id_producto, cantidad, precio_unitario]
+      [id_pedido, id_producto, cantidad, precio_unitario,observacion]
     );
     return rows[0].id_detalle_pedido;
   } catch (error) {
