@@ -1,3 +1,5 @@
+DROP FUNCTION IF EXISTS public.get_detalle_pedido_completo(integer);
+
 CREATE OR REPLACE FUNCTION public.get_detalle_pedido_completo(p_id_pedido integer)
 RETURNS TABLE(
     id_detalle_pedido integer, 
@@ -6,11 +8,14 @@ RETURNS TABLE(
     precio_unitario numeric, 
     descuento numeric, 
     adiciones jsonb, 
+    observacion_detalle text,
     mesa character varying,
     estado_pedido character varying,
     nombre_cliente character varying,
     nombre_usuario character varying,
     correo_cliente character varying,
+    observacion_pedido text,
+    medio_pago character varying,
     total_pedido numeric,
     id_venta integer
 )
@@ -47,6 +52,7 @@ BEGIN
             ) FILTER (WHERE ap.id_adicion IS NOT NULL),
             '[]'::jsonb
         ) AS adiciones,
+        dp.observacion AS observacion_detalle,
         COALESCE(m.nombre_mesa, 
             CASE 
                 WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar'
@@ -56,6 +62,8 @@ BEGIN
         c.nombre AS nombre_cliente,
         u.nombre_usuario,
         c.correo AS correo_cliente,
+        pe.observacion AS observacion_pedido,
+        pe.medio_pago,
         t.total_pedido,
         pe.id_venta
     FROM 
@@ -76,15 +84,18 @@ BEGIN
         dp.cantidad,
         dp.precio_unitario,
         dp.descuento,
+        dp.observacion,
         m.nombre_mesa,
         pe.tipo_pedido,
         es.nombre_estado,
         c.nombre,
         u.nombre_usuario,
         c.correo,
+        pe.observacion,
+        pe.medio_pago,
         t.total_pedido,
         pe.id_venta;
 END;
 $function$;
-
---DROP FUNCTION IF EXISTS public.get_detalle_pedido_completo(integer); Elimar funcion. 
+--Eliminar antes de ejecutar
+--select * from get_detalle_pedido_completo(33)

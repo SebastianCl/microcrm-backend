@@ -75,3 +75,51 @@ ADD COLUMN id_venta INT;
 ALTER TABLE pedidos
 ADD CONSTRAINT fk_pedidos_ventas
 FOREIGN KEY (id_venta) REFERENCES ventas(id_venta);
+-- 24/06
+-- Agregar campo observacion
+ALTER TABLE pedidos
+ADD COLUMN observacion TEXT;
+-- Agregar campo medio_pago
+ALTER TABLE pedidos
+ADD COLUMN medio_pago VARCHAR(50);
+--Agregar campo observacion sobre detalle pedido
+ALTER TABLE detalle_pedido
+ADD COLUMN observacion TEXT;
+-- Gastos
+CREATE TABLE tipos_gasto (
+    id_tipo_gasto SERIAL PRIMARY KEY,
+    nombre_tipo VARCHAR(100) NOT NULL UNIQUE,
+    descripcion TEXT
+);
+--Ejemplo de gastos
+INSERT INTO tipos_gasto (nombre_tipo, descripcion) VALUES
+('Diario', 'Gastos del día a día'),
+('Insumos', 'Compra de insumos para el negocio'),
+('Servicios', 'Pago de servicios como luz, agua, internet'),
+('Publicidad', 'Campañas de marketing'),
+('Otros', 'Otros gastos no clasificados');
+-- Renombrar columna 'tipo' para eliminarla luego
+ALTER TABLE gastos RENAME COLUMN tipo TO tipo_tmp;
+
+-- Agregar columna FK al tipo de gasto
+ALTER TABLE gastos ADD COLUMN id_tipo_gasto INT;
+
+-- Agregar columna para el usuario que registró el gasto
+ALTER TABLE gastos ADD COLUMN id_usuario INT;
+
+-- Establecer las relaciones
+ALTER TABLE gastos
+ADD CONSTRAINT fk_tipo_gasto FOREIGN KEY (id_tipo_gasto) REFERENCES tipos_gasto(id_tipo_gasto),
+ADD CONSTRAINT fk_usuario_gasto FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario);
+
+-- Asignar tipo basado en texto antiguo
+UPDATE gastos
+SET id_tipo_gasto = (
+    SELECT id_tipo_gasto 
+    FROM tipos_gasto 
+    WHERE LOWER(nombre_tipo) = LOWER(tipo_tmp::text)
+)
+WHERE tipo_tmp IS NOT NULL;
+
+-- Eliminar columna temporal
+ALTER TABLE gastos DROP COLUMN tipo_tmp;
