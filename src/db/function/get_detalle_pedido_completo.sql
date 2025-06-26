@@ -8,7 +8,7 @@ RETURNS TABLE(
     precio_unitario numeric, 
     descuento numeric, 
     adiciones jsonb, 
-    observacion_detalle text,
+    observacion text,
     mesa character varying,
     estado_pedido character varying,
     nombre_cliente character varying,
@@ -52,7 +52,7 @@ BEGIN
             ) FILTER (WHERE ap.id_adicion IS NOT NULL),
             '[]'::jsonb
         ) AS adiciones,
-        dp.observacion AS observacion_detalle,
+        dp.observacion AS observacion,
         COALESCE(m.nombre_mesa, 
             CASE 
                 WHEN pe.tipo_pedido = 'para_llevar' THEN 'Para llevar'
