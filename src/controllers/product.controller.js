@@ -69,6 +69,14 @@ const updateStatus = async (req, res, next) => {
   }
 };
 
+const getCategorias = async (req, res, next) => {
+  try {
+        const products = await productService.AllCategorias();
+        res.status(200).json(products);
+    } catch (err) {
+        next(err);
+    }
+};
 
 
 module.exports = {
@@ -77,5 +85,6 @@ module.exports = {
   createProduct,
   updateProduct,
   updateStatus,
-  getProductAdditions
+  getProductAdditions,
+  getCategorias
 };

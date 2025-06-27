@@ -37,6 +37,13 @@ LEFT JOIN categorias c ON p.id_categoria = c.id_categoria;
   return rows;
 };
 
+const AllCategorias = async () => {
+  const { rows } = await db.query(`SELECT * FROM categorias`);
+
+  if (rows.length === 0) throw errors.PRODUCTS_NOT_FOUND();
+  return rows;
+};
+
 const getFindById = async (id) => {
   const { rows } = await db.query(
     'SELECT id_producto, nombre, descripcion, precio, stock, estado FROM productos WHERE id_producto = $1', 
@@ -115,5 +122,6 @@ module.exports = {
   createProduct,
   updateStatus,
   updateProduct,
-  getProductAdditions
+  getProductAdditions,
+  AllCategorias
 };
