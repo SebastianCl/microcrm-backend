@@ -32,8 +32,8 @@ const obtenerDetallePedido = async (req, res, next) => {
 const actualizarEstadoPedido = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { id_estado } = req.body;
-    const idVenta = await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado));
+    const { id_estado, medio_pago } = req.body;
+    const idVenta = await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado), medio_pago);
     res.json({ success: true, message: 'Estado actualizado', id_venta: idVenta || null });
   } catch (error) {
     next(error);

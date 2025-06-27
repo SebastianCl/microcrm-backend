@@ -55,11 +55,11 @@ const obtenerDetallePedido = async (id_pedido) => {
   }
 };
 
-const actualizarEstadoPedido = async (id_pedido, id_estado) => {
+const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago) => {
   try {
     await db.query(
-      'UPDATE pedidos SET id_estado = $1 WHERE id_pedido = $2',
-      [id_estado, id_pedido]
+      'UPDATE pedidos SET id_estado = $1, medio_pago = $3 WHERE id_pedido = $2',
+      [id_estado, id_pedido, medio_pago ]
     );
     // 2. Si se finaliza el pedido, buscar la venta generada automáticamente
     const ESTADO_FINALIZADO = 5;
