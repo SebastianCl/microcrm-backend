@@ -45,17 +45,43 @@ const AllCategorias = async () => {
 };
 
 const getFindById = async (id) => {
-  const { rows } = await db.query(
-    'SELECT id_producto, nombre, descripcion, precio, stock, estado FROM productos WHERE id_producto = $1', 
-    [id]
-  );
+  const { rows } = await db.query(`
+    SELECT
+    p.id_producto,
+    p.nombre,
+    p.descripcion,
+    p.precio,
+    p.stock,
+    p.maneja_inventario,
+    p.estado,
+    p.id_categoria,
+    c.nombre_categoria,
+    COALESCE(
+        (
+            SELECT jsonb_agg(
+                jsonb_build_object(
+                    'id_adicion', ap.id_adicion,
+                    'nombre', ap.nombre,
+                    'precio_extra', ap.precio_extra,
+                    'estado', ap.estado
+                ) ORDER BY ap.id_adicion
+            )
+            FROM adiciones_producto ap
+            WHERE ap.id_producto = p.id_producto
+        ),
+        '[]'::jsonb
+    ) AS adiciones
+FROM productos p
+LEFT JOIN categorias c ON p.id_categoria = c.id_categoria
+WHERE p.id_producto = $1
+  `, [id]);
   if (rows.length === 0) throw errors.PRODUCT_NOT_FOUND();
   return rows[0];
 };
 
-const getProductAdditions = async(id) =>{
+const getProductAdditions = async (id) => {
   const existingProduct = await getFindById(id);
-  const {rows}  = await db.query('SELECT * FROM get_adiciones_por_producto($1)', [existingProduct.id_producto]);
+  const { rows } = await db.query('SELECT * FROM get_adiciones_por_producto($1)', [existingProduct.id_producto]);
 
   return rows[0];
 };
