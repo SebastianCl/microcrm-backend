@@ -1,22 +1,17 @@
 const expensesRepo = require('../repositories/expenses.repository');
 
-const getAllExpenses = async() => {
-  return await expensesRepo.getAllExpenses();
+
+
+const createExpense = async( id_cliente, descripcion, monto, fecha, id_tipo_gasto, id_usuario) => {
+  return await expensesRepo.createExpense( id_cliente, descripcion, monto, fecha, id_tipo_gasto, id_usuario);
 };
 
-const getExpenseById = async(id) => {
-  return await expensesRepo.getExpenseById(id);
+const getTypesExpenses = async() => {
+  return await expensesRepo.getTypesExpenses();
 };
 
-const getExpensesByClientId = async(id) => {
-  return await expensesRepo.getExpensesByClientId(id);
-};
+const getExpesesByDay = async(fecha_inicio = null, fecha_final = null) => {
+  return await expensesRepo.getExpesesByDay(fecha_inicio , fecha_final);
 
-const createExpense = async(id_cliente, descripcion, monto, fecha, tipo) => {
-  return await expensesRepo.createExpense(id_cliente, descripcion, monto, fecha, tipo);
 };
-
-const updateExpense = async(id, data) =>{
-  return await expensesRepo.updateExpense(id, data);
-};
-module.exports = { getAllExpenses, getExpenseById, getExpensesByClientId, createExpense, updateExpense  };
+module.exports = {  createExpense, getTypesExpenses, getExpesesByDay  };

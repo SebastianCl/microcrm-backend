@@ -63,11 +63,11 @@ const errors = {
 
   // Errores para gastos
   EXPENSES_NOT_FOUND: () => new ApiError(404, 'Gastos no encontrados'),
-  EXPENSE_NOT_FOUND: () => new ApiError(404, 'Gasto no encontrado'),
   EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El gasto ya existe'),
   EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el gasto'),
-  EXPENSE_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el gasto'),
-  
+  TYPE_EXPENSES_FAILED: () => new ApiError(500, 'Error al mostrar los tipos de gastos'),
+  EXPENSES_FAILED: () => new ApiError(500, 'No existen gastos'),
+
 
   // Errores para pedidos
   PEDIDOS_NOT_FOUND: () => new ApiError(404, 'No se encontró el pedido'),
@@ -99,7 +99,7 @@ const errors = {
   RETURN_NOT_FOUND: () => new ApiError(404, 'Return not found'),
   RETURN_ALREADY_EXISTS: () => new ApiError(409, 'The return already exists'),
   RETURN_CREATION_FAILED: () => new ApiError(500, 'Error creating the return'),
-  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return'),
+  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return')
 };
 
 module.exports = errors;

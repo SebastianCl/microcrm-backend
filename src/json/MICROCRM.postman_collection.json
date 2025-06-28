@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "411a8b37-8f6c-4e31-9b73-1871a5199fde",
+		"_postman_id": "faf47144-82fb-4c01-bd68-9dca93869a47",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "43623464",
-		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-411a8b37-8f6c-4e31-9b73-1871a5199fde?action=share&source=collection_link&creator=43623464"
+		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-faf47144-82fb-4c01-bd68-9dca93869a47?action=share&source=collection_link&creator=43623464"
 	},
 	"item": [
 		{
@@ -224,6 +224,37 @@
 					"response": []
 				},
 				{
+					"name": "getAllCategoriasProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEwNzI4OTMsImV4cCI6MTc1MTA3NjQ5M30.ybcqN3wrMyNKjoJ76He2D9jJdJAAXXsBbfcOyYdpH9U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "getProductById",
 					"request": {
 						"auth": {
@@ -402,107 +433,14 @@
 			"name": "gastos",
 			"item": [
 				{
-					"name": "getAllExpenses",
+					"name": "createExprense",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/expenses",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"expenses"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getExpenseById",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/expenses/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"expenses",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getExpensesByClientId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/expenses/client/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"expenses",
-								"client",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc2MjMyNDAsImV4cCI6MTc0NzYyNjg0MH0.N2q1XxBFMldDItC_DdC3y1IKJi5Wu9aDOw5fqeUXXz4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEwNjkyMzUsImV4cCI6MTc1MTA3MjgzNX0.c6pn2m3BNzByuCNIvHUcFcRZO0ZZDPKBPFMvrLt5KFo",
 									"type": "string"
 								}
 							]
@@ -511,7 +449,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"descripcion\" : \"ninguno\",\r\n    \"monto\": 30000,\r\n    \"fecha\": \"2025-10-29\",\r\n    \"tipo\": \"mensual\" // diario and mensual\r\n\r\n}",
+							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"descripcion\" : \"ninguno\",\r\n    \"monto\": 30000,\r\n    \"fecha\": \"2025-10-29\",\r\n    \"id_tipo_gasto\": 1 // diario and mensual\r\n\r\n}\r\n/*\r\n    tipo de gastos\r\n    1 =\tDiario\r\n    2 =\tInsumos\r\n    3 =\tServicios\r\n    4 =\tPublicidad\r\n    5 =\tOtros\r\n\r\n*/",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -529,6 +467,93 @@
 								"api",
 								"expenses",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTypesExpenses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEwNjkyMzUsImV4cCI6MTc1MTA3MjgzNX0.c6pn2m3BNzByuCNIvHUcFcRZO0ZZDPKBPFMvrLt5KFo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/expenses/type-of-expense",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses",
+								"type-of-expense"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpesesByDay",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEwNjkyMzUsImV4cCI6MTc1MTA3MjgzNX0.c6pn2m3BNzByuCNIvHUcFcRZO0ZZDPKBPFMvrLt5KFo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/expenses/?fecha_inicio=2025-05-22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"expenses",
+								""
+							],
+							"query": [
+								{
+									"key": "fecha_inicio",
+									"value": "2025-05-22"
+								},
+								{
+									"key": "fecha_final",
+									"value": "2025-10-30",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -2338,7 +2363,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"username\": \"oween\", \"password\": \"123\" }",
+					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
 					"options": {
 						"raw": {
 							"language": "json"
