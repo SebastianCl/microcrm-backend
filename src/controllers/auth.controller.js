@@ -9,8 +9,8 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const token = await authService.login(username, password);
-    res.json({ token });
+    const response = await authService.login(username, password);
+    res.json(response);
   } catch (e) {
     res.status(401).json({ error: e.message });
   }
