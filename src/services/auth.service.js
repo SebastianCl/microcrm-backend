@@ -16,7 +16,13 @@ const login = async (username, password) => {
   const token = jwt.sign({ id: user.id, username: user.username, role: user.rol }, process.env.JWT_SECRET, {
     expiresIn: '1h'
   });
-  return token;
+
+  const userResponse = {
+    id_usuario: user.id_usuario,
+    rol: user.rol,
+    token
+  };
+  return userResponse;
 };
 
 module.exports = { register, login };
