@@ -8,6 +8,29 @@ const getAllVentas = async () => {
     return rows;
 };
 
+const getSubtotal = async () => {
+    const { rows } =  await db.query(`SELECT 
+    COALESCE((
+        SELECT SUM(v.total)
+        FROM ventas v
+        WHERE DATE(v.fecha) = CURRENT_DATE
+    ), 0) AS total_venta,
+    COALESCE((
+        SELECT SUM(g.monto)
+        FROM gastos g
+        WHERE DATE(g.fecha) = CURRENT_DATE
+    ), 0) AS total_gastos,
+    COALESCE((
+        SELECT COUNT(*)
+        FROM pedidos p
+        JOIN estado e ON e.id_estado = p.id_estado
+        WHERE e.nombre_estado = 'Pendiente'
+          AND DATE(p.fecha) = CURRENT_DATE
+    ), 0) AS total_pen`);
+    if(rows.length === 0) throw errors.VENTAS_NOT_FOUND();
+    return rows;
+};
+
 const getVentaById = async (id) => {
     const { rows } =  await db.query('SELECT id_venta, id_cliente, id_usuario, fecha, total FROM ventas WHERE id_venta = $1', [id]);
     if(rows.length === 0 ) throw errors.VENTA_NOT_FOUND();
@@ -59,5 +82,6 @@ module.exports = {
     getDetallesVentaById,
     createVenta, 
     insertarDetalleVenta, 
-    getVentasPorFecha 
+    getVentasPorFecha,
+    getSubtotal
 }; 

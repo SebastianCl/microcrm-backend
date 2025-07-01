@@ -5,6 +5,10 @@ const getAllVentas = async () => {
     return await ventasRepo.getAllVentas();
 };
 
+const getSubtotal = async () => {
+    return await ventasRepo.getSubtotal();
+};
+
 const getVentaById = async (id) => {
     return await ventasRepo.getVentaById(id);
 };
@@ -37,5 +41,6 @@ module.exports = {
     getVentaById, 
     getDetallesVentaById,  
     createVenta,
-    getVentasPorFecha 
+    getVentasPorFecha,
+    getSubtotal
 };

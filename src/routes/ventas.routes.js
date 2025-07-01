@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getAllVentas, getVentaById, createVenta, getDetallesVentaById, getVentasPorFecha } = require('../controllers/ventas.controller');
+const { getAllVentas, getVentaById, createVenta, getDetallesVentaById, getVentasPorFecha, getSubtotal } = require('../controllers/ventas.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 
 
 router.get('/', authenticateToken(['admin', 'empleado']), getAllVentas);
+router.get('/subtotal', authenticateToken(['admin', 'empleado']), getSubtotal);
 router.get('/fecha', authenticateToken(['admin', 'empleado']), getVentasPorFecha);
 router.get('/:id', authenticateToken(['admin', 'empleado']), getVentaById);
 router.get('/detalles/:id', authenticateToken(['admin', 'empleado']), getDetallesVentaById);

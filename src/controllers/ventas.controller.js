@@ -9,6 +9,15 @@ const getAllVentas = async (req, res, next) => {
     }
 };
 
+const getSubtotal = async (req, res, next) => {
+    try {
+        const ventas = await ventasService.getSubtotal();
+        res.status(200).json(ventas);
+    } catch (err) {
+        next(err);
+    }
+};
+
 const getVentaById = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -48,4 +57,4 @@ const getVentasPorFecha = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta,getVentasPorFecha };
+module.exports = { getAllVentas, getVentaById, getDetallesVentaById ,createVenta,getVentasPorFecha, getSubtotal };
