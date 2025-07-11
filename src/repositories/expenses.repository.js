@@ -15,14 +15,37 @@ const createExpense = async(id_cliente, descripcion, monto, fecha, id_tipo_gasto
   }
 };
 
-const getTypesExpenses = async() => {
+const getExpensesById = async(id) => {
   try {
-    const {rows} = await db.query('select id_tipo_gasto, nombre_tipo, descripcion from tipos_gasto');
-    return rows;
+    const {rows} = await db.query('SELECT * from gastos WHERE id_gasto = $1', [id]);
+    return rows[0]
   } catch (error) {
-    throw errors.TYPE_EXPENSES_FAILED();
+    throw errors.EXPENSES_NOT_FOUND();
   }
-};
+}
+
+const updateExpense = async(id, data) => {
+  try {
+      const existingExpense = await getExpensesById(id);
+
+      const keys = Object.keys(data);
+      const values = Object.values(data);
+      if (keys.length === 0) throw errors.EXPENSES_UPDATE();
+
+      const setClause = keys
+        .map((key, index) => `${key} = $${index + 1}`)
+        .join(', ');
+
+      values.push(existingExpense.id_gasto);
+      const query = `UPDATE gastos SET ${setClause} WHERE id_gasto = $${values.length}`;
+      await db.query(query, values);
+    } catch (err) {
+      if (err instanceof ApiError) throw err;
+      throw errors.EXPENSES_UPDATE();
+    }
+}
+
+
 
 const getExpesesByDay = async(fecha_inicio, fecha_final) => {
   try {
@@ -34,4 +57,22 @@ const getExpesesByDay = async(fecha_inicio, fecha_final) => {
     throw errors.EXPENSES_FAILED();
   }
 };
-module.exports = { createExpense, getTypesExpenses, getExpesesByDay  };
+
+
+
+
+
+
+
+// tipos de gastos
+const getTypesExpenses = async() => {
+  try {
+    const {rows} = await db.query('select id_tipo_gasto, nombre_tipo, descripcion from tipos_gasto');
+    return rows;
+  } catch (error) {
+    throw errors.TYPE_EXPENSES_FAILED();
+  }
+};
+
+
+module.exports = { createExpense, getExpesesByDay, getExpensesById, updateExpense, getTypesExpenses};

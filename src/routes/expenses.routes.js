@@ -1,9 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const { createExpense, getTypesExpenses, getExpesesByDay  } = require('../controllers/expenses.controller');
+const { createExpense,  getExpesesByDay, getExpensesById, updateExpense,  getTypesExpenses } = require('../controllers/expenses.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 
-router.post('/', authenticateToken(['admin', 'empleado']), createExpense);
+router.post('/', createExpense);
+router.get('/',  getExpesesByDay);
+router.get('/:id', getExpensesById );
+router.put('/:id',  updateExpense );
+
+
+
+
+
+
+// type expenses
 router.get('/type-of-expense', authenticateToken(['admin', 'empleado']),  getTypesExpenses );
-router.get('/', authenticateToken(['admin', 'empleado']), getExpesesByDay);
+
 module.exports = router;

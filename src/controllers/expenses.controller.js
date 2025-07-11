@@ -32,4 +32,25 @@ const getExpesesByDay = async(req, res, next) => {
     
 };
 
-module.exports = { createExpense, getTypesExpenses, getExpesesByDay };
+const getExpensesById = async(req, res, next) => {
+    try {
+        const {id} = req.params;
+        const expense = await expensesService.getExpensesById(id);
+        res.status(200).json(expense)
+    } catch (error) {
+        next(err);
+    }
+};
+
+const updateExpense = async(req, res, next) => {
+   try {
+          const { id } = req.params;
+          const data = req.body;
+          await expensesService.updateExpense(id, data);;
+          res.status(200).json({ message: 'gasto actualizado correctamente' });
+      } catch (err) {
+          next(err);
+      }
+};
+
+module.exports = {  createExpense, getExpesesByDay, getExpensesById, updateExpense, getTypesExpenses };

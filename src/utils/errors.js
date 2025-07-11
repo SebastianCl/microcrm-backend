@@ -67,6 +67,8 @@ const errors = {
   EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el gasto'),
   TYPE_EXPENSES_FAILED: () => new ApiError(500, 'Error al mostrar los tipos de gastos'),
   EXPENSES_FAILED: () => new ApiError(500, 'No existen gastos'),
+  EXPENSES_UPDATE: () => new ApiError(500, 'Error al actualizar el gasto'),
+
 
 
   // Errores para pedidos
