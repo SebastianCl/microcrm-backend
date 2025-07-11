@@ -65,11 +65,17 @@ const errors = {
   EXPENSES_NOT_FOUND: () => new ApiError(404, 'Gastos no encontrados'),
   EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El gasto ya existe'),
   EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el gasto'),
-  TYPE_EXPENSES_FAILED: () => new ApiError(500, 'Error al mostrar los tipos de gastos'),
   EXPENSES_FAILED: () => new ApiError(500, 'No existen gastos'),
   EXPENSES_UPDATE: () => new ApiError(500, 'Error al actualizar el gasto'),
-
-
+  
+  // Errores para type_expenses (tipo de gastos)
+  TYPE_EXPENSES_FAILED: () => new ApiError(500, 'Error al mostrar los tipos de gastos'),
+  TYPE_EXPENSES_NOT_FOUND: () => new ApiError(404, 'tipo de gastos no encontrados'),
+  TYPE_EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El tipo de gasto ya existe'),
+  TYPE_EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el tipo de gasto'),
+  TYPE_EXPENSES_FAILED: () => new ApiError(500, 'No existen tipo gastos'),
+  TYPE_EXPENSES_UPDATE: () => new ApiError(500, 'Error al actualizar el tipo gasto'),
+  
 
   // Errores para pedidos
   PEDIDOS_NOT_FOUND: () => new ApiError(404, 'No se encontró el pedido'),

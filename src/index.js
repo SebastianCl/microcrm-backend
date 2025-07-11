@@ -34,9 +34,9 @@ app.use('/api/combos', require('./routes/combos.routes'));
 app.use('/api/combo_product', require('./routes/combo_product.routes'));
 app.use('/api/pedido', require('./routes/pedido.routes'));
 app.use('/api/expenses', require('./routes/expenses.routes'));
+app.use('/api/type-of-expense', require('./routes/type_expenses.routes'));
 app.use('/api/ventas', require('./routes/ventas.routes.js'));
 app.use('/api/factura', require('./routes/factura.routes.js'));
-
 app.use('/api/inventarios', require('./routes/inventario.routes.js'));
 app.use('/api/returns', require('./routes/returns.routes'));
 app.use('/api/configuration', require('./routes/configuration.routes'));

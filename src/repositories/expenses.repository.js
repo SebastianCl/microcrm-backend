@@ -45,8 +45,6 @@ const updateExpense = async(id, data) => {
     }
 }
 
-
-
 const getExpesesByDay = async(fecha_inicio, fecha_final) => {
   try {
     const {rows} = await db.query('SELECT * FROM get_gastos_por_fecha($1, $2)', [fecha_inicio, fecha_final]);
@@ -58,13 +56,21 @@ const getExpesesByDay = async(fecha_inicio, fecha_final) => {
   }
 };
 
-
-
-
-
-
-
 // tipos de gastos
+
+const createTypesExpenses = async(nombre_tipo, descripcion ) => {
+  try {
+    const { rows } = await db.query(
+      'INSERT INTO tipos_gasto(nombre_tipo, descripcion) VALUES($1,$2) RETURNING id_tipo_gasto ', [nombre_tipo, descripcion]
+    );
+
+    return rows[0].id_gasto;
+  } catch (error) {
+    console.log(error)
+    throw errors.TYPE_EXPENSE_CREATION_FAILED();
+  }
+};
+
 const getTypesExpenses = async() => {
   try {
     const {rows} = await db.query('select id_tipo_gasto, nombre_tipo, descripcion from tipos_gasto');
@@ -74,5 +80,44 @@ const getTypesExpenses = async() => {
   }
 };
 
+const getTypesExpensesId = async(id) => {
+  try {
+    const {rows} = await db.query('SELECT id_tipo_gasto, nombre_tipo, descripcion FROM tipos_gasto WHERE id_tipo_gasto = $1', [id])
+    return rows[0]
+  } catch (error) {
+    throw errors.TYPE_EXPENSES_NOT_FOUND()
+  }
+};
 
-module.exports = { createExpense, getExpesesByDay, getExpensesById, updateExpense, getTypesExpenses};
+const updateTypeExpenses = async(id, data) => {
+  try {
+      const existingtypeExpense = await getTypesExpensesId(id);
+
+      const keys = Object.keys(data);
+      const values = Object.values(data);
+      if (keys.length === 0) throw errors.TYPE_EXPENSES_UPDATE();
+
+      const setClause = keys
+        .map((key, index) => `${key} = $${index + 1}`)
+        .join(', ');
+
+      values.push(existingtypeExpense.id_tipo_gasto);
+      const query = `UPDATE tipos_gasto SET ${setClause} WHERE id_tipo_gasto = $${values.length}`;
+      await db.query(query, values);
+    } catch (err) {
+      if (err instanceof ApiError) throw err;
+      throw errors.TYPE_EXPENSES_UPDATE();
+    }
+}
+
+
+module.exports = { 
+  createExpense, 
+  getExpesesByDay, 
+  getExpensesById, 
+  updateExpense,
+  createTypesExpenses, 
+  getTypesExpenses, 
+  getTypesExpensesId,
+  updateTypeExpenses
+};
