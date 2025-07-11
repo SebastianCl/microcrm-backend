@@ -99,7 +99,12 @@ const errors = {
   RETURN_NOT_FOUND: () => new ApiError(404, 'Return not found'),
   RETURN_ALREADY_EXISTS: () => new ApiError(409, 'The return already exists'),
   RETURN_CREATION_FAILED: () => new ApiError(500, 'Error creating the return'),
-  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return')
+  RETURN_UPDATE_FAILED: () => new ApiError(500, 'Error updating the return'),
+
+  // Errores para categorias (categories)
+  CATEGORY_CREATION_FAILED: () => new ApiError(500, 'Error al crear la categoria'),
+  CATEGORIES_NOT_FOUND: () => new ApiError(404, "No se encontro las categorias"),
+  CATEGORY_NOT_FOUND: () => new ApiError(404, "No se encontro la categoria")
 };
 
 module.exports = errors;
