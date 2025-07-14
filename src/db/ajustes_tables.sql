@@ -123,3 +123,8 @@ WHERE tipo_tmp IS NOT NULL;
 
 -- Eliminar columna temporal
 ALTER TABLE gastos DROP COLUMN tipo_tmp;
+
+-- Act 13/07
+ALTER TABLE pedidos
+ADD COLUMN valor_domi NUMERIC(10,2) DEFAULT 0,
+ADD COLUMN valor_descu NUMERIC(10,2) DEFAULT 

@@ -3,14 +3,14 @@ const ApiError = require('../utils/apiError');
 const db = require('../config/db');
 
 const crearPedido = async (data) => {
-  let { id_cliente, id_usuario, id_mesa, tipo_pedido,medio_pago,Observacion,productos, id_estado } = data;
+  let { id_cliente, id_usuario, id_mesa, tipo_pedido,medio_pago,Observacion,productos, id_estado, valor_domi, valor_descu  } = data;
   if(!id_cliente) id_cliente = 1;
   if (!productos || productos.length === 0) {
     throw new ApiError(400, 'Debe incluir al menos un producto en el pedido.');
   }
 
   const id_pedido = await pedidoRepo.insertarPedido({
-    id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, Observacion
+    id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, Observacion, valor_domi, valor_descu
   });
 
   for (const producto of productos) {

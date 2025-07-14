@@ -3,11 +3,13 @@ RETURNS TRIGGER AS $$
 DECLARE
     v_total DECIMAL := 0;
     v_id_venta INT;
+    v_valor_domi DECIMAL := COALESCE(NEW.valor_domi, 0);
+    v_valor_descu DECIMAL := COALESCE(NEW.valor_descu, 0);
 BEGIN
     -- Solo si el nuevo estado es 'finalizado'
     IF NEW.id_estado = (SELECT id_estado FROM estado WHERE nombre_estado = 'Finalizado') THEN
 
-        -- Crear la venta principal
+        -- Crear la venta principal (total se calcula más adelante)
         INSERT INTO ventas (id_cliente, id_usuario, fecha, total, id_pedido)
         VALUES (
             NEW.id_cliente,
@@ -28,7 +30,7 @@ BEGIN
         FROM detalle_pedido dp
         WHERE dp.id_pedido = NEW.id_pedido;
 
-        -- Insertar adiciones del pedido (con id_adicion correctamente guardado)
+        -- Insertar adiciones del pedido
         INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_unitario, id_adicion)
         SELECT 
             v_id_venta,
@@ -41,15 +43,21 @@ BEGIN
         JOIN adiciones_producto ap ON ap.id_adicion = dpa.id_adicion
         WHERE dp.id_pedido = NEW.id_pedido;
 
-        -- Calcular y actualizar el total de la venta
-        UPDATE ventas
-        SET total = (
-            SELECT SUM(cantidad * precio_unitario)
-            FROM detalle_venta
-            WHERE id_venta = v_id_venta
-        )
+        -- Calcular el total sumando productos y adiciones
+        SELECT SUM(cantidad * precio_unitario)
+        INTO v_total
+        FROM detalle_venta
         WHERE id_venta = v_id_venta;
-        -- 5. Registrar el id_venta en el pedido
+
+        -- Ajustar total con valor_domi y valor_descu
+        v_total := v_total + v_valor_domi - v_valor_descu;
+
+        -- Actualizar total en la tabla ventas
+        UPDATE ventas
+        SET total = v_total
+        WHERE id_venta = v_id_venta;
+
+        -- Registrar el id_venta en el pedido
         UPDATE pedidos
         SET id_venta = v_id_venta
         WHERE id_pedido = NEW.id_pedido;

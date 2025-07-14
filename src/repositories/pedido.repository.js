@@ -2,15 +2,14 @@ const db = require('../config/db');
 const errors = require('../utils/errors');
 const ApiError = require('../utils/apiError');
 
-const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_pedido = 'en_mesa', id_estado, medio_pago, Observacion }) => {
+const insertarPedido = async ({ id_cliente, id_usuario, id_mesa = null, tipo_pedido = 'en_mesa', id_estado, medio_pago, Observacion, valor_domi, valor_descu }) => {
 
   try {
-       console.log(medio_pago,Observacion)
     const { rows } = await db.query(
-      `INSERT INTO pedidos (id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, observacion )
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
+      `INSERT INTO pedidos (id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, observacion, valor_domi, valor_descu )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         RETURNING id_pedido`,
-      [id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, Observacion]
+      [id_cliente, id_usuario, id_mesa, tipo_pedido, id_estado, medio_pago, Observacion, valor_domi, valor_descu]
     );
     return rows[0].id_pedido;
   } catch (error) {
