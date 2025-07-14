@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ec4f8bdf-f750-48de-af21-14a1d80a180b",
+		"_postman_id": "1042a6cf-23f5-47b3-833d-2d8a2c6e6c8a",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21119789"
+		"_exporter_id": "43623464",
+		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-1042a6cf-23f5-47b3-833d-2d8a2c6e6c8a?action=share&source=collection_link&creator=43623464"
 	},
 	"item": [
 		{
@@ -85,7 +86,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDc1OTAxNTksImV4cCI6MTc0NzU5Mzc1OX0.0_rNaMYE_ofH-m2QghNhu4i-K-EtaHbqFgYgcVoozXo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MDkyNzQsImV4cCI6MTc1MjUxMjg3NH0.RKKRLTq-LsG-ENjwrBebji5HMaj5fTn8zX6jZhH5naE",
 									"type": "string"
 								}
 							]
@@ -124,7 +125,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcyNzQ3MDMsImV4cCI6MTc0NzI3ODMwM30.qq665IcYWA4KC9dPho88P4UzYh3FUcs85Fl3X5L9WhU",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MTA5NTksImV4cCI6MTc1MjUxNDU1OX0.isg14hmtwwdL9pLAWrgwUiRISSRCLE5wiAvhSiyRH2I",
 									"type": "string"
 								}
 							]
@@ -132,7 +133,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/clients/50",
+							"raw": "http://localhost:3000/api/clients/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -141,7 +142,7 @@
 							"path": [
 								"api",
 								"clients",
-								"50"
+								"5"
 							]
 						}
 					},
@@ -456,7 +457,10 @@
 							"name": "getTypeExpensesById",
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": ""
+								}
 							},
 							"response": []
 						},
@@ -2383,7 +2387,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NTIyMDgwODEsImV4cCI6MTc1MjIxMTY4MX0.bQ8xobPEnZJ3mU2hj-jvNWnK2zs0CtQQngeR7fMnlMQ",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI0NzA3MjUsImV4cCI6MTc1MjQ3NDMyNX0.0Ih-ZiPamUVE9z9jfiCuCwWeP_BJz0dPKwLiIskbG0Y",
 									"type": "string"
 								}
 							]
@@ -2494,7 +2498,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NTIyMDgwODEsImV4cCI6MTc1MjIxMTY4MX0.bQ8xobPEnZJ3mU2hj-jvNWnK2zs0CtQQngeR7fMnlMQ",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI0NzA3MjUsImV4cCI6MTc1MjQ3NDMyNX0.0Ih-ZiPamUVE9z9jfiCuCwWeP_BJz0dPKwLiIskbG0Y",
 									"type": "string"
 								}
 							]
@@ -2511,7 +2515,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/19",
+							"raw": "http://localhost:3000/api/categories/16",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2520,7 +2524,7 @@
 							"path": [
 								"api",
 								"categories",
-								"19"
+								"16"
 							]
 						}
 					},
@@ -2529,126 +2533,203 @@
 			]
 		},
 		{
-			"name": "login",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM4ODMsImV4cCI6MTc0NzcxNzQ4M30.4sVWgYXHCUS6pX1q_779uTXA5rITAcCnesPuj2SGikE",
-							"type": "string"
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcxNDExNDQsImV4cCI6MTc0NzE0NDc0NH0.bYTtC8jzb5ltzbQfsZwYCCKTYwqTjfXXjsgHuxdFZCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"id_client\": 2,\r\n    \"username\": \"everth\",\r\n    \"password\": \"123\",\r\n    \"rol\": \"admin\" // admin - empleado \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MDkyNzQsImV4cCI6MTc1MjUxMjg3NH0.RKKRLTq-LsG-ENjwrBebji5HMaj5fTn8zX6jZhH5naE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
+				{
+					"name": "updateStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MTQ5NzcsImV4cCI6MTc1MjUxODU3N30.QnRZNQg7X9pJ4PT4L_et8lwfEDnHtufNasfufgu7pU0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MTQ4NjMsImV4cCI6MTc1MjUxODQ2M30.Pb00hztaQ3wYrb2bS46InjhrfYMeA-vYaXuFxfsoNzQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/reset-password/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"reset-password",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM4ODMsImV4cCI6MTc0NzcxNzQ4M30.4sVWgYXHCUS6pX1q_779uTXA5rITAcCnesPuj2SGikE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"username\": \"everth\", \"password\": \"1234\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "usuarios",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDcxNjk2NzIsImV4cCI6MTc0NzE3MzI3Mn0.VJMe7EpucIBoJJlpgemRMQa08eRB8-CyG28-9fKiTXw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDcxNDExNDQsImV4cCI6MTc0NzE0NDc0NH0.bYTtC8jzb5ltzbQfsZwYCCKTYwqTjfXXjsgHuxdFZCA",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"username\": \"everth\", \"password\": \"123\" }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
