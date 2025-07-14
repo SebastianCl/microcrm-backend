@@ -29,4 +29,26 @@ const createUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getUsers, getUser, createUser };
+const toggleStatus = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await userService.updateStatus(id);
+        res.status(200).json({message: 'el estado del usuario ha sido actualizado correctamente'});
+    } catch (err) {
+        next(err);
+    }
+};
+
+const resetPassword = async (req, res, next) =>{
+  try {
+    const { id } = req.params;
+    const {newPassword} = req.body;
+    await userService.resetPassword(id, newPassword);
+    res.status(200).json({message: 'La contraseña se actualizo correctamente'});
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+module.exports = { getUsers, getUser, createUser, toggleStatus, resetPassword };

@@ -2,9 +2,9 @@ const userRepo = require('../repositories/user.repository');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const register = async (cliente, username, password) => {
+const register = async (id_client,username, password, rol) => {
   const hashed = await bcrypt.hash(password, 10);
-  const userId = await userRepo.createUser({ cliente, username, password: hashed });
+  const userId = await userRepo.createUser({ id_client, username, password: hashed, rol });
   return userId;
 };
 

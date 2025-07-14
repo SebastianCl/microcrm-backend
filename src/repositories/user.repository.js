@@ -2,7 +2,7 @@ const db = require('../config/db');
 const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
 // Create for register.
-const createUser = async ({ cliente, username, password }) => {
+const createUser = async ({ id_client, username, password, rol }) => {
   try {
    const existing = await db.query(
     'SELECT id_usuario FROM usuarios WHERE nombre_usuario = $1', [username]
@@ -11,12 +11,11 @@ const createUser = async ({ cliente, username, password }) => {
   if (existing.rows.length > 0) throw errors.USER_ALREADY_EXISTS();
 
   const { rows } = await db.query(
-    'INSERT INTO usuarios (id_cliente, nombre_usuario, contrasena) VALUES ($1, $2, $3) RETURNING id_usuario', [cliente, username, password]
+    'INSERT INTO usuarios (id_cliente, nombre_usuario, contrasena, rol) VALUES ($1, $2, $3, $4) RETURNING id_usuario', [id_client, username, password, rol]
   );
   return rows[0].id_usuario;
 
   } catch (err) {
-
     if (err instanceof ApiError) throw err;
 
     throw errors.USER_CREATION_FAILED();
@@ -38,9 +37,33 @@ const getAllUsers = async () => {
 // User one
 const getFindById = async (id) => {
   const { rows } = await db.query(
-    'SELECT id_cliente, nombre_usuario, estado FROM usuarios WHERE id_usuario = $1', [id]);
+    'SELECT id_usuario, id_cliente, nombre_usuario, estado FROM usuarios WHERE id_usuario = $1', [id]);
   if (rows.length === 0) throw errors.USER_NOT_FOUND();
   return rows[0];
 };
 
-module.exports = { createUser, findByUsername, getAllUsers, getFindById };
+
+const updateStatus = async (id) => {
+  try {
+    const existingUser =  await getFindById(id);
+    await db.query(
+      'UPDATE usuarios SET estado = NOT estado WHERE id_usuario = $1', [existingUser.id_usuario]
+    ); 
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw errors.USER_UPDATE_FAILED();
+  }
+};
+
+const resetPassword = async({id, newPassword}) => {
+  try {
+    const existingUser =  await getFindById(id);
+    await db.query(
+      'UPDATE usuarios SET contrasena = $1 WHERE id_usuario = $2', [newPassword, existingUser.id_usuario]
+    ); 
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw errors.USER_UPDATE_FAILED();
+  }
+};
+module.exports = { createUser, findByUsername, getAllUsers, getFindById, updateStatus, resetPassword };
