@@ -47,7 +47,6 @@ const updateComboProduct = async (id, data) => {
     
     await db.query(query, values);
   } catch (err) {
-    console.error(err)
     if (err instanceof ApiError) throw err;
     throw errors.COMBO_PRODUCT_UPDATE_FAILED();
   }

@@ -5,9 +5,9 @@ const authenticateToken = require('../middlewares/auth.middleware');
 
 
 // type expenses
-router.post('/', createTypesExpenses)
-router.get('/',  getTypesExpenses );
-router.get('/:id', getTypesExpensesId)
-router.put('/:id', updateTypeExpenses)
+router.post('/',  authenticateToken(['admin', 'empleado']), createTypesExpenses);
+router.get('/', authenticateToken(['admin', 'empleado']), getTypesExpenses );
+router.get('/:id', authenticateToken(['admin', 'empleado']),getTypesExpensesId);
+router.put('/:id', authenticateToken(['admin', 'empleado']), updateTypeExpenses);
 
 module.exports = router;

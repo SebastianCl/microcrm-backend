@@ -1,6 +1,4 @@
 const inventarioService = require('../services/inventario.service');
-const productService = require('../services/product.service');
-const errors = require('../utils/errors');
 
 const getInventoryRecords = async (req, res, next) => {
     try {

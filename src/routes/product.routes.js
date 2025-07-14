@@ -8,7 +8,7 @@ router.get('/categorias', authenticateToken(['admin', 'empleado']), getCategoria
 router.get('/:id', authenticateToken(['admin', 'empleado']), getProduct);
 router.get('/:id/additions',authenticateToken(['admin', 'empleado']), getProductAdditions  );
 router.post('/', authenticateToken(['admin', 'empleado']), createProduct);
-router.patch('/:id', authenticateToken(['admin',"empleado"]), updateStatus);
+router.patch('/:id', authenticateToken(['admin','empleado']), updateStatus);
 router.put('/:id', authenticateToken(['admin', 'empleado']), updateProduct);
 
 module.exports = router;

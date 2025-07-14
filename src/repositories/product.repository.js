@@ -38,7 +38,7 @@ LEFT JOIN categorias c ON p.id_categoria = c.id_categoria;
 };
 
 const AllCategorias = async () => {
-  const { rows } = await db.query(`SELECT * FROM categorias`);
+  const { rows } = await db.query('SELECT * FROM categorias');
 
   if (rows.length === 0) throw errors.PRODUCTS_NOT_FOUND();
   return rows;

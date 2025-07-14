@@ -73,7 +73,6 @@ const errors = {
   TYPE_EXPENSES_NOT_FOUND: () => new ApiError(404, 'tipo de gastos no encontrados'),
   TYPE_EXPENSE_ALREADY_EXISTS: () => new ApiError(409, 'El tipo de gasto ya existe'),
   TYPE_EXPENSE_CREATION_FAILED: () => new ApiError(500, 'Error al crear el tipo de gasto'),
-  TYPE_EXPENSES_FAILED: () => new ApiError(500, 'No existen tipo gastos'),
   TYPE_EXPENSES_UPDATE: () => new ApiError(500, 'Error al actualizar el tipo gasto'),
   
 
@@ -111,8 +110,8 @@ const errors = {
 
   // Errores para categorias (categories)
   CATEGORY_CREATION_FAILED: () => new ApiError(500, 'Error al crear la categoria'),
-  CATEGORIES_NOT_FOUND: () => new ApiError(404, "No se encontro las categorias"),
-  CATEGORY_NOT_FOUND: () => new ApiError(404, "No se encontro la categoria")
+  CATEGORIES_NOT_FOUND: () => new ApiError(404, 'No se encontro las categorias'),
+  CATEGORY_NOT_FOUND: () => new ApiError(404, 'No se encontro la categoria')
 };
 
 module.exports = errors;

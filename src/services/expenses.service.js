@@ -16,7 +16,7 @@ const getExpensesById = async(id) => {
 };
 
 const updateExpense = async(id, data) => {
-  return await expensesRepo.updateExpense(id, data)
+  return await expensesRepo.updateExpense(id, data);
 };
 
 // tipo de gastos
@@ -30,11 +30,11 @@ const getTypesExpenses = async() => {
 
 
 const getTypesExpensesId = async(id) => {
-  return await expensesRepo.getTypesExpensesId(id)
-}
+  return await expensesRepo.getTypesExpensesId(id);
+};
 
 const updateTypeExpenses = async(id, data) => {
-  return await expensesRepo.updateTypeExpenses(id, data)
+  return await expensesRepo.updateTypeExpenses(id, data);
 };
 
 

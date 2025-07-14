@@ -57,7 +57,7 @@ const obtenerDetallePedido = async (id_pedido) => {
 const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago, valor_domi, valor_descu) => {
   try {
     const valores = [id_estado, id_pedido, medio_pago];
-    let query = `UPDATE pedidos SET id_estado = $1, medio_pago = $3`;
+    let query = 'UPDATE pedidos SET id_estado = $1, medio_pago = $3';
     let index = 4;
 
     if (valor_domi !== null && valor_domi !== undefined && valor_domi !== 0) {
@@ -71,7 +71,7 @@ const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago, valor_do
       valores.push(valor_descu);
     }
 
-    query += ` WHERE id_pedido = $2`;
+    query += ' WHERE id_pedido = $2';
 
     await db.query(query, valores);
     // 2. Si se finaliza el pedido, buscar la venta generada automáticamente

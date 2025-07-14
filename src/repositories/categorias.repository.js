@@ -1,7 +1,5 @@
 const db = require('../config/db');
 const errors = require('../utils/errors');
-const ApiError = require('../utils/apiError');
-const { currentLineHeight } = require('pdfkit');
 
 const getAll = async () => {
   const { rows } = await db.query('SELECT id_categoria, nombre_categoria FROM categorias');
@@ -22,7 +20,6 @@ const create = async (nombre_categoria) => {
     );
     return rows[0].id_categoria;
   } catch (err) {
-    console.log(err)
     throw errors.CATEGORY_CREATION_FAILED();
   }
 };
@@ -30,7 +27,7 @@ const create = async (nombre_categoria) => {
 
 const updateCategory = async (id, nombre_categoria) => {
   const existing = await getById(id);
-  await db.query('UPDATE categorias SET nombre_categoria = $1 WHERE id_categoria = $2', [nombre_categoria, id]);
+  await db.query('UPDATE categorias SET nombre_categoria = $1 WHERE id_categoria = $2', [nombre_categoria, existing.id_categoria]);
 };
 
 module.exports = { getAll, getById, create, updateCategory };

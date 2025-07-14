@@ -5,7 +5,6 @@ const {
   getProductByComboId,
   createComboProduct,
   updateComboProduct,
-  updateStatus
 } = require('../controllers/combo_product.controller');
 const authenticateToken = require('../middlewares/auth.middleware');
 

@@ -18,11 +18,11 @@ const createExpense = async(id_cliente, descripcion, monto, fecha, id_tipo_gasto
 const getExpensesById = async(id) => {
   try {
     const {rows} = await db.query('SELECT * from gastos WHERE id_gasto = $1', [id]);
-    return rows[0]
+    return rows[0];
   } catch (error) {
     throw errors.EXPENSES_NOT_FOUND();
   }
-}
+};
 
 const updateExpense = async(id, data) => {
   try {
@@ -43,7 +43,7 @@ const updateExpense = async(id, data) => {
       if (err instanceof ApiError) throw err;
       throw errors.EXPENSES_UPDATE();
     }
-}
+};
 
 const getExpesesByDay = async(fecha_inicio, fecha_final) => {
   try {
@@ -66,7 +66,6 @@ const createTypesExpenses = async(nombre_tipo, descripcion ) => {
 
     return rows[0].id_gasto;
   } catch (error) {
-    console.log(error)
     throw errors.TYPE_EXPENSE_CREATION_FAILED();
   }
 };
@@ -82,10 +81,10 @@ const getTypesExpenses = async() => {
 
 const getTypesExpensesId = async(id) => {
   try {
-    const {rows} = await db.query('SELECT id_tipo_gasto, nombre_tipo, descripcion FROM tipos_gasto WHERE id_tipo_gasto = $1', [id])
-    return rows[0]
+    const {rows} = await db.query('SELECT id_tipo_gasto, nombre_tipo, descripcion FROM tipos_gasto WHERE id_tipo_gasto = $1', [id]);
+    return rows[0];
   } catch (error) {
-    throw errors.TYPE_EXPENSES_NOT_FOUND()
+    throw errors.TYPE_EXPENSES_NOT_FOUND();
   }
 };
 
@@ -108,7 +107,7 @@ const updateTypeExpenses = async(id, data) => {
       if (err instanceof ApiError) throw err;
       throw errors.TYPE_EXPENSES_UPDATE();
     }
-}
+};
 
 
 module.exports = { 

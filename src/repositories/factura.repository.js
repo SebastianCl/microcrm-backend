@@ -25,7 +25,7 @@ const getVenta = async (id_venta) => {
 
 const getDetalleVenta = async (id_venta) => {
   const result = await db.query(
-    `SELECT * FROM detalle_venta WHERE id_venta = $1`,
+    'SELECT * FROM detalle_venta WHERE id_venta = $1',
     [id_venta]
   );
   return result.rows;
