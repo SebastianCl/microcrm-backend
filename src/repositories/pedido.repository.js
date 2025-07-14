@@ -23,7 +23,7 @@ const insertarDetallePedido = async (id_pedido, { id_producto, cantidad, precio_
       `INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_unitario,observacion)
       VALUES ($1, $2, $3, $4, $5)
       RETURNING id_detalle_pedido`,
-      [id_pedido, id_producto, cantidad, precio_unitario,observacion]
+      [id_pedido, id_producto, cantidad, precio_unitario, observacion]
     );
     return rows[0].id_detalle_pedido;
   } catch (error) {
@@ -54,19 +54,33 @@ const obtenerDetallePedido = async (id_pedido) => {
   }
 };
 
-const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago) => {
+const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago, valor_domi, valor_descu) => {
   try {
-    await db.query(
-      'UPDATE pedidos SET id_estado = $1, medio_pago = $3 WHERE id_pedido = $2',
-      [id_estado, id_pedido, medio_pago ]
-    );
+    const valores = [id_estado, id_pedido, medio_pago];
+    let query = `UPDATE pedidos SET id_estado = $1, medio_pago = $3`;
+    let index = 4;
+
+    if (valor_domi !== null && valor_domi !== undefined && valor_domi !== 0) {
+      query += `, valor_domi = $${index}`;
+      valores.push(valor_domi);
+      index++;
+    }
+
+    if (valor_descu !== null && valor_descu !== undefined && valor_descu !== 0) {
+      query += `, valor_descu = $${index}`;
+      valores.push(valor_descu);
+    }
+
+    query += ` WHERE id_pedido = $2`;
+
+    await db.query(query, valores);
     // 2. Si se finaliza el pedido, buscar la venta generada automáticamente
     const ESTADO_FINALIZADO = 5;
 
     if (parseInt(id_estado) === ESTADO_FINALIZADO) {
 
       await new Promise(resolve => setTimeout(resolve, 300)); // 300 ms
-      
+
       const { rows } = await db.query(
         'SELECT id_venta FROM ventas WHERE id_pedido = $1 ORDER BY fecha DESC LIMIT 1',
         [id_pedido]
@@ -146,15 +160,15 @@ const modificarDetalle = async (client, detalle, idPedido) => {
 const agregarDetalle = async (client, detalle, idPedido) => {
   try {
     const { id_producto, cantidad, precio_unitario, adiciones = [] } = detalle;
-    
-    const  {rows} = await client.query(
+
+    const { rows } = await client.query(
       `INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_unitario)
         VALUES ($1, $2, $3, $4) RETURNING id_detalle_pedido`,
       [idPedido, id_producto, cantidad, precio_unitario]
     );
     let id_detalle_pedido = rows[0].id_detalle_pedido;
-    for(const adicion of adiciones){
-      insertarDetalleAdicion(id_detalle_pedido, adicion  );
+    for (const adicion of adiciones) {
+      insertarDetalleAdicion(id_detalle_pedido, adicion);
     }
   } catch (error) {
     throw new ApiError(500, 'Error al agregar el detalle: ' + error.message);
