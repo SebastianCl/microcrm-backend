@@ -7,8 +7,7 @@ const createUser = async ({id_client, username, password, rol }) => {
    const existing = await db.query(
     'SELECT id_usuario FROM usuarios WHERE nombre_usuario = $1', [username]
   );
-
-  if (existing.rows.length > 0) throw errors.USER_ALREADY_EXISTS();
+    if (existing.rows.length > 0) throw errors.USER_ALREADY_EXISTS();
 
   const { rows } = await db.query(
     'INSERT INTO usuarios (id_cliente, nombre_usuario, contrasena, rol) VALUES ($1, $2, $3, $4) RETURNING id_usuario', [id_client, username, password, rol]
@@ -16,7 +15,7 @@ const createUser = async ({id_client, username, password, rol }) => {
   return rows[0].id_usuario;
 
   } catch (err) {
-    console.log(err);
+    console.log('', err);
     if (err instanceof ApiError) throw err;
 
     throw errors.USER_CREATION_FAILED();

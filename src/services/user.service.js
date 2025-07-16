@@ -14,7 +14,8 @@ const createNewUser = async (userData) => {
   const { id_client, username, password, rol} = userData;
 
   if (!id_client || !username || !password || !rol) throw errors.USER_FAILED_INFO();
-  return await userRepo.createUser( id_client, username, password, rol);
+
+  return await userRepo.createUser({ id_client, username, password, rol});
 };
 
 const updateStatus = async(id) => {
