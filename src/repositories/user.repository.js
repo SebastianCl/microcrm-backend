@@ -2,7 +2,7 @@ const db = require('../config/db');
 const ApiError = require('../utils/apiError');
 const errors = require('../utils/errors');
 // Create for register.
-const createUser = async ({ id_client, username, password, rol }) => {
+const createUser = async ({id_client, username, password, rol }) => {
   try {
    const existing = await db.query(
     'SELECT id_usuario FROM usuarios WHERE nombre_usuario = $1', [username]
@@ -16,6 +16,7 @@ const createUser = async ({ id_client, username, password, rol }) => {
   return rows[0].id_usuario;
 
   } catch (err) {
+    console.log(err);
     if (err instanceof ApiError) throw err;
 
     throw errors.USER_CREATION_FAILED();
@@ -30,14 +31,14 @@ const findByUsername = async (username) => {
 };
 // All Users.
 const getAllUsers = async () => {
-  const { rows } = await db.query('SELECT id_usuario, nombre_usuario FROM usuarios');
+  const { rows } = await db.query('SELECT id_usuario, nombre_usuario, rol, estado FROM usuarios');
   if (rows.length === 0) throw errors.USERS_NOT_FOUND();
   return rows;
 };
 // User one
 const getFindById = async (id) => {
   const { rows } = await db.query(
-    'SELECT id_usuario, id_cliente, nombre_usuario, estado FROM usuarios WHERE id_usuario = $1', [id]);
+    'SELECT id_usuario, id_cliente, nombre_usuario, rol, estado FROM usuarios WHERE id_usuario = $1', [id]);
   if (rows.length === 0) throw errors.USER_NOT_FOUND();
   return rows[0];
 };

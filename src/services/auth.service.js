@@ -1,10 +1,12 @@
 const userRepo = require('../repositories/user.repository');
+const userService = require('../services/user.service');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const register = async (id_client,username, password, rol) => {
   const hashed = await bcrypt.hash(password, 10);
-  const userId = await userRepo.createUser({ id_client, username, password: hashed, rol });
+  const userData = { id_client, username, password: hashed, rol };
+  const userId = await userService.createNewUser(userData);
   return userId;
 };
 

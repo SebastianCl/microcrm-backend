@@ -1,5 +1,6 @@
 const userRepo = require('../repositories/user.repository');
 const bcrypt = require('bcrypt');
+const errors = require('../utils/errors');
 
 const listUsers = async () => {
   return await userRepo.getAllUsers();
@@ -10,7 +11,10 @@ const User = async (id) => {
 };
 
 const createNewUser = async (userData) => {
-  return await userRepo.createUser(userData);
+  const { id_client, username, password, rol} = userData;
+
+  if (!id_client || !username || !password || !rol) throw errors.USER_FAILED_INFO();
+  return await userRepo.createUser( id_client, username, password, rol);
 };
 
 const updateStatus = async(id) => {
