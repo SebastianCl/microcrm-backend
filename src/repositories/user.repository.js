@@ -15,7 +15,6 @@ const createUser = async ({id_client, username, password, rol }) => {
   return rows[0].id_usuario;
 
   } catch (err) {
-    console.log('', err);
     if (err instanceof ApiError) throw err;
 
     throw errors.USER_CREATION_FAILED();

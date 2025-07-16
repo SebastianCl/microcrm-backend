@@ -52,10 +52,17 @@ const getPedidosDelDia = async (estado) => {
   return await pedidoRepo.getPedidosDelDia(estado);
 };
 
-const ajustarPedido = async (id, agregados, modificados, eliminados) => {
+const ajustarPedido = async (id, valor_domi, valor_descu, agregados, modificados, eliminados) => {
   const client = await db.connect();
   
   try {
+
+    if(valor_domi != null) {
+      await pedidoRepo.actualizarValorDomi(id, valor_domi);
+    }
+    if(valor_descu != null) {
+      await pedidoRepo.actualizarValorDescu(id, valor_descu);
+    }
     if (!Array.isArray(agregados) || !Array.isArray(modificados) || !Array.isArray(eliminados)) {
       throw new ApiError(400, 'Los campos agregados, modificados y eliminados deben ser arrays');
     }

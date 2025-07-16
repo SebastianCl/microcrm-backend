@@ -84,6 +84,7 @@ const errors = {
   PEDIDO_ADICION_CREATION_FAILED: () => new ApiError(500, 'Error al agregar adiciones al pedido'),
   PEDIDO_DETALLE_NOT_FOUND: () => new ApiError(404, 'No se encontró el detalle del pedido'),
   PEDIDO_STATUS_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el estado del pedido'),
+  PEDIDO_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el pedido'),
 
   // Errores para ventas
   VENTAS_NOT_FOUND: () => new ApiError(404, 'Ventas no encontradas'),

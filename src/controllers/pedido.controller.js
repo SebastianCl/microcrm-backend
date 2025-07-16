@@ -53,9 +53,8 @@ const getPedidosDelDia = async (req, res, next) => {
 const ajustarPedido = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const {  agregados, modificados, eliminados } = req.body;
-
-    await pedidoService.ajustarPedido(id, agregados, modificados, eliminados);
+    const {  valor_domi, valor_descu, agregados, modificados, eliminados } = req.body;
+    await pedidoService.ajustarPedido(id, valor_domi, valor_descu, agregados, modificados, eliminados);
 
     res.json({
       success: true,

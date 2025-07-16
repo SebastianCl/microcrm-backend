@@ -175,6 +175,21 @@ const agregarDetalle = async (client, detalle, idPedido) => {
   }
 };
 
+const actualizarValorDomi = async(idPedido, valor_domi) =>{
+  try {
+    await db.query('UPDATE pedidos SET valor_domi = $1 WHERE id_pedido = $2', [valor_domi, idPedido]);
+  } catch (error) {
+    throw errors.PEDIDO_UPDATE_FAILED();
+  }
+};
+
+const actualizarValorDescu = async(idPedido, valor_descu) =>{
+  try {
+    await db.query('UPDATE pedidos SET valor_descu = $1 WHERE id_pedido = $2', [valor_descu, idPedido]);
+  } catch (error) {
+    throw errors.PEDIDO_UPDATE_FAILED();
+  }
+};
 module.exports = {
   insertarPedido,
   insertarDetallePedido,
@@ -184,5 +199,7 @@ module.exports = {
   getPedidosDelDia,
   eliminarDetalle,
   modificarDetalle,
-  agregarDetalle
+  agregarDetalle,
+  actualizarValorDomi,
+  actualizarValorDescu
 };
