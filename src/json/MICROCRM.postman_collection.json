@@ -1437,6 +1437,47 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "ajustarPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI3MDI5MjUsImV4cCI6MTc1MjcwNjUyNX0.PoWG3JxmEUxAk5KRCOAvzGrBah_toMb6WyaCPcG7Urw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n // Todo fucniona con normalidad, no se hicieron cambios en la funcionalidad\r\n  \"valor_domi\": 40000, // si no se van actulizar los valores, se mandan null\r\n  \"valor_descu\": 400000, // si no se van actulizar los valores, se mandan null\r\n  \"agregados\": [],\r\n  \"modificados\": [],\r\n  \"eliminados\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pedido/64/ajustar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pedido",
+								"64",
+								"ajustar"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2552,7 +2593,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n    \"id_client\": 2,\r\n    \"username\": \"everth\",\r\n    \"password\": \"123\",\r\n    \"rol\": \"admin\" // admin - empleado \r\n}",
+							"raw": "{ \r\n    \"id_client\": 2,\r\n    \"username\": \"5555\",\r\n    \"password\": \"123\",\r\n    \"rol\" : \"empleado\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2586,7 +2627,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI1MDkyNzQsImV4cCI6MTc1MjUxMjg3NH0.RKKRLTq-LsG-ENjwrBebji5HMaj5fTn8zX6jZhH5naE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTI2MzgwNTIsImV4cCI6MTc1MjY0MTY1Mn0.ywm0Mx3JAYwvqXQfuDcmML5c76WV4Vnfx2c7S8fDAnA",
 									"type": "string"
 								}
 							]
@@ -2665,7 +2706,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"newPassword\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"newPassword\": \"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2706,7 +2747,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"username\": \"everth\", \"password\": \"1234\" }",
+							"raw": "{ \"username\": \"everth\", \"password\": \"12345\" }",
 							"options": {
 								"raw": {
 									"language": "json"
