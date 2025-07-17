@@ -10,6 +10,8 @@ RETURNS TABLE(
     correo_cliente character varying,
     observacion_pedido text,
     medio_pago character varying,
+    valor_domi numeric,           -- NUEVO
+    valor_descu numeric,          -- NUEVO
     total_pedido numeric,
     id_venta integer
 )
@@ -54,7 +56,7 @@ BEGIN
             dp.id_pedido,
             SUM((dp.precio_unitario - dp.descuento) * dp.cantidad + 
                 COALESCE(ap.precio_extra * dpa.cantidad, 0)
-            ) AS total_pedido
+            ) AS subtotal
         FROM detalle_pedido dp
         LEFT JOIN detalle_pedido_adiciones dpa ON dpa.id_detalle_pedido = dp.id_detalle_pedido
         LEFT JOIN adiciones_producto ap ON ap.id_adicion = dpa.id_adicion
@@ -84,7 +86,9 @@ BEGIN
         c.correo AS correo_cliente,
         pe.observacion AS observacion_pedido,
         pe.medio_pago,
-        t.total_pedido,
+        pe.valor_domi,                             -- NUEVO campo agregado
+        pe.valor_descu,                            -- NUEVO campo agregado
+        (COALESCE(t.subtotal, 0) + COALESCE(pe.valor_domi, 0) - COALESCE(pe.valor_descu, 0)) AS total_pedido, --
         pe.id_venta
     FROM 
         detalle_con_adiciones dca
@@ -104,7 +108,9 @@ BEGIN
         c.correo,
         pe.observacion,
         pe.medio_pago,
-        t.total_pedido,
+        pe.valor_domi,          
+        pe.valor_descu,
+        t.subtotal,
         pe.id_venta;
 END;
 $function$;
