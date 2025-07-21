@@ -28,4 +28,8 @@ const resetPassword = async(id, newPassword) => {
   
 };
 
-module.exports = { listUsers, User, createNewUser, updateStatus, resetPassword };
+const updateUser = async(id, data) => {
+  return await userRepo.updateUser(id, data);
+};
+
+module.exports = { listUsers, User, createNewUser, updateStatus, resetPassword, updateUser };

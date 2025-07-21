@@ -65,4 +65,28 @@ const resetPassword = async({id, newPassword}) => {
     throw errors.USER_UPDATE_FAILED();
   }
 };
-module.exports = { createUser, findByUsername, getAllUsers, getFindById, updateStatus, resetPassword };
+
+const updateUser = async (id, data) => {
+  try {
+    const existingUser = await getFindById(id);
+
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+
+    if(keys.includes('contrasena') || keys.includes('estado') || keys.includes('id_client')) throw errors.USER_REQ_FAILED_INFO();
+    if (keys.length === 0) throw errors.USER_UPDATE_FAILED();
+
+    const setClause = keys
+      .map((key, index) => `${key} = $${index + 1}`)
+      .join(', ');
+
+    values.push(existingUser.id_usuario);
+
+    const query = `UPDATE usuarios SET ${setClause} WHERE id_usuario = $${values.length}`;
+    await db.query(query, values);
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw errors.USER_UPDATE_FAILED();
+  }
+};
+module.exports = { createUser, findByUsername, getAllUsers, getFindById, updateStatus, resetPassword, updateUser };

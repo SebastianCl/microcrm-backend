@@ -27,6 +27,7 @@ const errors = {
   USER_CREATION_FAILED: () => new ApiError(500, 'Error al crear el Usuario'),
   USER_UPDATE_FAILED: () => new ApiError(500, 'Error al actualizar el Usuario'),
   USER_FAILED_INFO: () => new ApiError(400, 'Faltan datos para crear el usuario'),
+  USER_REQ_FAILED_INFO: () => new ApiError(400, 'informacion enviada invalida'),
 
   // Errores para adiciones de producto
   ADDITIONS_NOT_FOUND: () => new ApiError(404, 'Fallo al consultar adiciones'),
