@@ -33,12 +33,10 @@
 							"raw": "{ \"username\": \"admin\", \"password\": \"admin123\" }"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/clients",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/clients",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"clients"
@@ -63,12 +61,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/clients/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/clients/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"clients",
@@ -103,12 +99,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/clients",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/clients",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"clients"
@@ -133,12 +127,10 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/clients/5",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/clients/5",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"clients",
@@ -173,12 +165,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/clients/3",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/clients/3",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"clients",
@@ -209,12 +199,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/products",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products"
@@ -239,12 +227,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/products/4",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products/4",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products",
@@ -270,12 +256,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/products/1/additions",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products/1/additions",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products",
@@ -311,12 +295,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/products",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products"
@@ -341,12 +323,10 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/products/6",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products/6",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products",
@@ -381,12 +361,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/products/5",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/products/5",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"products",
@@ -419,12 +397,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/api/type-of-expense",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/type-of-expense",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"type-of-expense"
@@ -439,12 +415,10 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/type-of-expense",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/type-of-expense",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"type-of-expense"
@@ -455,11 +429,41 @@
 						},
 						{
 							"name": "getTypeExpensesById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTMxMzIyMTIsImV4cCI6MTc1MzEzNTgxMn0.X-btrLFWZ7a-SZPekjYyujQ5Nj1jhE-5ORSSPIGHC8Q",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": ""
+									"raw": "{{baseURL}}/api/type-of-expense/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"type-of-expense",
+										"2"
+									]
 								}
 							},
 							"response": []
@@ -479,12 +483,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/api/type-of-expense/1",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/type-of-expense/1",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"type-of-expense",
@@ -512,12 +514,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/expenses",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/expenses",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expenses"
@@ -542,12 +542,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/expenses/3",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/expenses/3",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expenses",
@@ -582,12 +580,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/expenses/",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/expenses/",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expenses",
@@ -612,12 +608,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/expenses/3",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/expenses/3",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"expenses",
@@ -648,12 +642,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/additions",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/additions",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"additions"
@@ -678,12 +670,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/additions/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/additions/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"additions",
@@ -718,12 +708,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/additions/",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/additions/",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"additions",
@@ -749,12 +737,10 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/additions/7",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/additions/7",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"additions",
@@ -789,12 +775,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/additions/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/additions/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"additions",
@@ -825,12 +809,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/promotions",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/promotions",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"promotions"
@@ -855,12 +837,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/promotions/3",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/promotions/3",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"promotions",
@@ -895,12 +875,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/promotions",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/promotions",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"promotions"
@@ -925,12 +903,10 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/promotions/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/promotions/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"promotions",
@@ -955,12 +931,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/promotions/7",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/promotions/7",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"promotions",
@@ -998,12 +972,10 @@
 							"raw": "{\r\n    \"nombre\": \"empresaTest\",\r\n    \"correo\" : \"empresatest@gmail.com\",\r\n    \"telefono\": \"3503334582\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/mesas",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/mesas",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"mesas"
@@ -1035,12 +1007,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/mesas/2",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/mesas/2",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"mesas",
@@ -1086,12 +1056,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/mesas",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/mesas",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"mesas"
@@ -1120,12 +1088,10 @@
 							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"nombre_mesa\" : \"mesa de oween\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/mesas/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/mesas/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"mesas",
@@ -1160,12 +1126,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/mesas/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/mesas/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"mesas",
@@ -1205,12 +1169,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1245,12 +1207,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/3/agregar",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/3/agregar",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1289,12 +1249,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/3/detalle",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/3/detalle",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1333,12 +1291,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/dia",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/dia",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1376,12 +1332,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/dia?estado=En proceso",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/dia?estado=En proceso",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1422,12 +1376,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/18/estado",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/18/estado",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1463,12 +1415,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pedido/64/ajustar",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/pedido/64/ajustar",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pedido",
@@ -1518,12 +1468,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combos",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combos",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combos"
@@ -1557,12 +1505,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combos",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combos",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combos"
@@ -1591,12 +1537,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combos/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combos/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combos",
@@ -1631,12 +1575,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combos/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combos/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combos",
@@ -1667,12 +1609,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/combo_product",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combo_product",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combo_product"
@@ -1697,12 +1637,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/combo_product/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combo_product/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combo_product",
@@ -1737,12 +1675,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combo_product",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combo_product",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combo_product"
@@ -1776,12 +1712,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/combo_product/15",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/combo_product/15",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"combo_product",
@@ -1821,12 +1755,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/ventas",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas"
@@ -1858,12 +1790,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/ventas",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas"
@@ -1895,12 +1825,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/ventas/fecha",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas/fecha",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas",
@@ -1933,12 +1861,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/ventas/fecha?fecha=2025-05-21",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas/fecha?fecha=2025-05-21",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas",
@@ -1977,12 +1903,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/ventas/fecha?fecha_inicio=2024-05-01&fecha_fin=2025-05-21",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas/fecha?fecha_inicio=2024-05-01&fecha_fin=2025-05-21",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas",
@@ -2008,12 +1932,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/ventas/3",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas/3",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas",
@@ -2039,12 +1961,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/ventas/detalles/7",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/ventas/detalles/7",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"ventas",
@@ -2076,12 +1996,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/inventarios",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/inventarios",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"inventarios"
@@ -2106,12 +2024,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/inventarios/4",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/inventarios/4",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"inventarios",
@@ -2146,12 +2062,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/inventarios",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/inventarios",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"inventarios"
@@ -2188,12 +2102,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/returns",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/returns",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"returns"
@@ -2225,12 +2137,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/returns/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/returns/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"returns",
@@ -2255,12 +2165,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/returns/",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/returns/",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"returns",
@@ -2291,12 +2199,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/configuration",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/configuration",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"configuration"
@@ -2321,12 +2227,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/configuration/1",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/configuration/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"configuration",
@@ -2361,12 +2265,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/configuration",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/configuration",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"configuration"
@@ -2396,12 +2298,10 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/factura/6/generar",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/factura/6/generar",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"factura",
@@ -2440,12 +2340,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/categories",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"categories"
@@ -2477,12 +2375,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/2",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/categories/2",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"categories",
@@ -2517,12 +2413,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/categories",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"categories"
@@ -2556,12 +2450,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/categories/16",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/categories/16",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"categories",
@@ -2601,12 +2493,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/auth/register",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/auth/register",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"auth",
@@ -2644,12 +2534,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/users",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users"
@@ -2674,12 +2562,10 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/5",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/users/5",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
@@ -2714,12 +2600,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users/reset-password/6",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/users/reset-password/6",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
@@ -2738,7 +2622,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZW1wbGVhZG8iLCJpYXQiOjE3NDc3MTM4ODMsImV4cCI6MTc0NzcxNzQ4M30.4sVWgYXHCUS6pX1q_779uTXA5rITAcCnesPuj2SGikE",
+									"value": "yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTMxMzA5NjksImV4cCI6MTc1MzEzNDU2OX0.ePO-pos3PdGdo6F0TBikqBrMxTv16hy5EMyIbb44cVQ",
 									"type": "string"
 								}
 							]
@@ -2755,12 +2639,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/auth/login",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/auth/login",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"auth",
@@ -2769,8 +2651,54 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTMxMzEzNzUsImV4cCI6MTc1MzEzNDk3NX0.R6KMa4acFSey_388sT1BETibZ7dNHQrC7biGR8meROU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre_usuario\": \"juliana\",\r\n    \"rol\" : \"admin\",\r\n    \"contrasena\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/update-user/14",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"update-user",
+								"14"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000",
+			"type": "default"
 		}
 	]
 }
