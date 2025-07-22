@@ -54,33 +54,19 @@ const obtenerDetallePedido = async (id_pedido) => {
   }
 };
 
-const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago, valor_domi, valor_descu) => {
+const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago) => {
   try {
-    const valores = [id_estado, id_pedido, medio_pago];
-    let query = 'UPDATE pedidos SET id_estado = $1, medio_pago = $3';
-    let index = 4;
-
-    if (valor_domi !== null && valor_domi !== undefined && valor_domi !== 0) {
-      query += `, valor_domi = $${index}`;
-      valores.push(valor_domi);
-      index++;
-    }
-
-    if (valor_descu !== null && valor_descu !== undefined && valor_descu !== 0) {
-      query += `, valor_descu = $${index}`;
-      valores.push(valor_descu);
-    }
-
-    query += ' WHERE id_pedido = $2';
-
-    await db.query(query, valores);
+    await db.query(
+      'UPDATE pedidos SET id_estado = $1, medio_pago = $3 WHERE id_pedido = $2',
+      [id_estado, id_pedido, medio_pago ]
+    );
     // 2. Si se finaliza el pedido, buscar la venta generada automáticamente
     const ESTADO_FINALIZADO = 5;
 
     if (parseInt(id_estado) === ESTADO_FINALIZADO) {
 
       await new Promise(resolve => setTimeout(resolve, 300)); // 300 ms
-
+      
       const { rows } = await db.query(
         'SELECT id_venta FROM ventas WHERE id_pedido = $1 ORDER BY fecha DESC LIMIT 1',
         [id_pedido]
@@ -99,7 +85,6 @@ const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago, valor_do
     throw errors.PEDIDO_STATUS_UPDATE_FAILED();
   }
 };
-
 const getPedidosDelDia = async (estado) => {
   const query = estado
     ? 'SELECT * FROM get_pedidos_del_dia($1)'

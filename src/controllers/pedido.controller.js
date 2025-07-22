@@ -32,13 +32,14 @@ const obtenerDetallePedido = async (req, res, next) => {
 const actualizarEstadoPedido = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { id_estado, medio_pago, valor_domi, valor_descu } = req.body;
-    const idVenta = await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado), medio_pago, Number(valor_domi), Number(valor_descu));
+    const { id_estado, medio_pago } = req.body;
+    const idVenta = await pedidoService.actualizarEstadoPedido(Number(id), Number(id_estado), medio_pago);
     res.json({ success: true, message: 'Estado actualizado', id_venta: idVenta || null });
   } catch (error) {
     next(error);
   }
 };
+
 
 const getPedidosDelDia = async (req, res, next) => {
   try {
