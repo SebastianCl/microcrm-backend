@@ -114,7 +114,10 @@ const errors = {
   // Errores para categorias (categories)
   CATEGORY_CREATION_FAILED: () => new ApiError(500, 'Error al crear la categoria'),
   CATEGORIES_NOT_FOUND: () => new ApiError(404, 'No se encontro las categorias'),
-  CATEGORY_NOT_FOUND: () => new ApiError(404, 'No se encontro la categoria')
+  CATEGORY_NOT_FOUND: () => new ApiError(404, 'No se encontro la categoria'),
+
+  // Errores para las finanzas
+  FINANCE_SUMMARY_FAILED: () => new ApiError(500, 'Error al cargar el resumen financiero')
 };
 
 module.exports = errors;

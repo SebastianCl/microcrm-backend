@@ -41,7 +41,7 @@ app.use('/api/inventarios', require('./routes/inventario.routes.js'));
 app.use('/api/returns', require('./routes/returns.routes'));
 app.use('/api/configuration', require('./routes/configuration.routes'));
 app.use('/api/categories', require('./routes/categorias.routes'));
-
+app.use('/api/finance', require('./routes/finance.routes'));
 
 app.get('/health', (_, res) => res.send({ status: 'UP' }));
 
@@ -51,5 +51,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
-  console.log(`Server running at http://localhost:${process.env.PORT}`)
+  console.log(`Server running at http://localhost:${process.env.PORT} - index.js:54`)
 );
