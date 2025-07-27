@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "1042a6cf-23f5-47b3-833d-2d8a2c6e6c8a",
+		"_postman_id": "f8b909fe-a94b-43fa-b787-c3d2b0cb20c4",
 		"name": "MICROCRM",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "43623464",
-		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-1042a6cf-23f5-47b3-833d-2d8a2c6e6c8a?action=share&source=collection_link&creator=43623464"
+		"_collection_link": "https://oween-2240709.postman.co/workspace/oween's-Workspace~7994ff76-0d32-493c-87d1-c02631e4c37c/collection/43623464-f8b909fe-a94b-43fa-b787-c3d2b0cb20c4?action=share&source=collection_link&creator=43623464"
 	},
 	"item": [
 		{
@@ -2686,6 +2686,41 @@
 								"users",
 								"update-user",
 								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "finance",
+			"item": [
+				{
+					"name": "summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/finance/summary?fecha_inicio=2025-07-09",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"finance",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "fecha_final",
+									"value": "2025-07-20",
+									"disabled": true
+								},
+								{
+									"key": "fecha_inicio",
+									"value": "2025-07-09"
+								}
 							]
 						}
 					},
