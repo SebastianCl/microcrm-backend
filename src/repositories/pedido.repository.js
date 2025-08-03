@@ -71,12 +71,28 @@ const actualizarEstadoPedido = async (id_pedido, id_estado, medio_pago) => {
         'SELECT id_venta FROM ventas WHERE id_pedido = $1 ORDER BY fecha DESC LIMIT 1',
         [id_pedido]
       );
-
       if (rows.length === 0) {
         throw new ApiError(500, 'El trigger no generó la venta para el pedido finalizado.');
       }
-
-      return rows[0].id_venta;
+      const idVenta = rows[0].id_venta;
+      // 2. Obtener el detalle del pedido (productos, NO adiciones)
+      const { rows: detalles } = await db.query(`
+        SELECT dp.id_producto, SUM(dp.cantidad) as cantidad
+        FROM detalle_pedido dp
+        WHERE dp.id_pedido = $1 AND dp.id_producto IS NOT NULL
+        GROUP BY dp.id_producto
+      `, [id_pedido]);
+      // 3. Por cada producto, descontar del stock y registrar salida
+      debugger;
+      for (const item of detalles) {
+        const { id_producto, cantidad } = item;
+        // Registrar en inventario
+        await db.query(`
+          INSERT INTO inventarios (id_producto, cantidad, tipo_movimiento,comentario)
+          VALUES ($1, $2,'salida','salida por venta pedido # = ${id_pedido}')
+        `, [id_producto, cantidad]);
+      }
+      return idVenta;
     }
 
     // Si no es finalizado, retornar null o undefined

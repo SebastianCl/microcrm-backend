@@ -128,3 +128,6 @@ ALTER TABLE gastos DROP COLUMN tipo_tmp;
 ALTER TABLE pedidos
 ADD COLUMN valor_domi NUMERIC(10,2) DEFAULT 0,
 ADD COLUMN valor_descu NUMERIC(10,2) DEFAULT 
+
+-- ACT 02/08
+--Eliminar TRG de ventas_detalle, esta dando conflictos de inventarios. 
